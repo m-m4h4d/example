@@ -49,11 +49,12 @@ function NavBar() {
                             sx: {
                                 backgroundColor: 'primary.main',
                                 color: 'white',
-                                py: 1,
+                                pb: 1,
                                 justifyContent: 'space-evenly',
                                 '& .MuiMenuItem-root': {
                                     justifyContent: 'space-evenly',
                                     backgroundColor: 'primary.main',
+                                    transition: 'all 0.2s ease-in-out',
                                     '&:hover': {
                                         backgroundColor: 'white',
                                         color: 'black'
@@ -87,7 +88,7 @@ function NavBar() {
                                     flexDirection: 'column',
                                     color: 'white',
                                     backgroundColor: 'primary.main',
-                                    my: 1
+                                    mt: 1
                                 }}
                             >
                                 {option}
