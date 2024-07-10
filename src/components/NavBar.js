@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
-import { AppBar, Typography, Box, Button, Menu, MenuItem } from '@mui/material';
+import { AppBar, Typography, Box, Button, Menu, MenuItem, Divider } from '@mui/material';
 
 const pages = ['About Us', 'Blogs', 'Career', 'Portfolio', 'Contact Us'];
 const hireOptions = ['Digital Marketer', 'Graphic Designer', 'Web Developer', 'App Developer', 'Content Writer'];
 
-function ResponsiveAppBar() {
+function NavBar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
 
@@ -44,13 +44,48 @@ function ResponsiveAppBar() {
                         anchorEl={anchorEl}
                         open={open}
                         onClose={handleMouseLeave}
-                        MenuListProps={{ onMouseLeave: handleMouseLeave }}
-                        PaperProps={{ elevation: 0, sx: { backgroundColor: 'primary.main', color: 'white', textAlign: 'center' } }}
+                        MenuListProps={{ 
+                            onMouseLeave: handleMouseLeave, 
+                            sx: { 
+                                backgroundColor: 'primary.main',
+                                color: 'white',
+                                py: 1, 
+                                justifyContent: 'space-evenly',  
+                                '& .MuiMenuItem-root': {
+                                    justifyContent: 'space-evenly',
+                                    backgroundColor: 'primary.main',
+                                    '&:hover': {
+                                        backgroundColor: 'white',
+                                        color: 'black'
+                                    }
+                                }
+                            }
+                        }}
+                        PaperProps={{ 
+                            elevation: 0,
+                            sx: { 
+                                backgroundColor: 'primary.main',
+                                color: 'white'
+                            }
+                        }}
                         transformOrigin={{ horizontal: 'center', vertical: 'top' }}
                         anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
                     >
                         {hireOptions.map((option) => (
-                            <MenuItem key={option} onClick={handleMouseLeave}>{option}</MenuItem>
+                            <MenuItem 
+                                key={option} 
+                                onClick={handleMouseLeave} 
+                                sx={{
+                                    display: 'flex', 
+                                    flexDirection: 'column', 
+                                    color: 'white', 
+                                    backgroundColor: 'primary.main',
+                                    my: 1
+                                }}
+                            >
+                                {option}
+                                <Divider sx={{ border: '1px solid', width: '100%' }} />
+                            </MenuItem>
                         ))}
                     </Menu>
                 </Box>
@@ -59,4 +94,5 @@ function ResponsiveAppBar() {
         </AppBar>
     );
 }
-export default ResponsiveAppBar;
+
+export default NavBar;
