@@ -1,20 +1,30 @@
 import * as React from 'react';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
-import { AppBar, Typography, Box, Button, Menu, MenuItem, Divider } from '@mui/material';
+import { AppBar, Typography, Box, Button, Menu, MenuItem, Divider, Paper } from '@mui/material';
 
 const pages = ['About Us', 'Blogs', 'Career', 'Portfolio', 'Contact Us'];
 const hireOptions = ['Digital Marketer', 'Graphic Designer', 'Web Developer', 'App Developer', 'Content Writer'];
 
 function NavBar() {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
+    const [anchorElServices, setAnchorElServices] = React.useState(null);
+    const [anchorElHire, setAnchorElHire] = React.useState(null);
+    const openServices = Boolean(anchorElServices);
+    const openHire = Boolean(anchorElHire);
 
-    const handleMouseEnter = (event) => {
-        setAnchorEl(event.currentTarget);
+    const handleMouseEnterServices = (event) => {
+        setAnchorElServices(event.currentTarget);
     };
 
-    const handleMouseLeave = () => {
-        setAnchorEl(null);
+    const handleMouseLeaveServices = () => {
+        setAnchorElServices(null);
+    };
+
+    const handleMouseEnterHire = (event) => {
+        setAnchorElHire(event.currentTarget);
+    };
+
+    const handleMouseLeaveHire = () => {
+        setAnchorElHire(null);
     };
 
     return (
@@ -25,27 +35,81 @@ function NavBar() {
                 sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}
             >
                 <Typography variant='h2'>LOGO</Typography>
-                <Button sx={{ color: 'black' }} endIcon={<ExpandMore />}><b>Services</b></Button>
-                {pages.map((page) => (
-                    <Button sx={{ color: 'black' }} key={page}><b>{page}</b></Button>
-                ))}
                 <Box
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
+                    onMouseEnter={handleMouseEnterServices}
+                    onMouseLeave={handleMouseLeaveServices}
                     textAlign={'center'}
                 >
                     <Button
                         sx={{ color: 'black' }}
-                        endIcon={open ? <ExpandLess /> : <ExpandMore />}
+                        endIcon={openServices ? <ExpandLess /> : <ExpandMore />}
+                    >
+                        <b>Services</b>
+                    </Button>
+                    <Menu
+                        anchorEl={anchorElServices}
+                        open={openServices}
+                        onClose={handleMouseLeaveServices}
+                        MenuListProps={{
+                            onMouseLeave: handleMouseLeaveServices,
+                            sx: {
+                                backgroundColor: 'primary.main',
+                                color: 'white',
+                                pb: 1,
+                                justifyContent: 'space-evenly',
+                                '& .MuiMenuItem-root': {
+                                    justifyContent: 'space-evenly',
+                                    backgroundColor: 'primary.main',
+                                    transition: 'all 0.2s ease-in-out',
+                                    '&:hover': {
+                                        backgroundColor: 'white',
+                                        color: 'black'
+                                    },
+                                    '&.Mui-focusVisible': {
+                                        backgroundColor: 'primary.main',
+                                        '&:hover': {
+                                            backgroundColor: 'white',
+                                            color: 'black'
+                                        }
+                                    }
+                                }
+                            }
+                        }}
+                        PaperProps={{
+                            elevation: 0,
+                            sx: {
+                                backgroundColor: 'primary.main',
+                                color: 'white'
+                            }
+                        }}
+                        transformOrigin={{ horizontal: 'center', vertical: 'top' }}
+                        anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
+                    >
+                        <Paper>
+                            <img src="/mnt/data/Screenshot 2024-07-10 151717.png" alt="Services" width="600" />
+                        </Paper>
+                    </Menu>
+                </Box>
+                {pages.map((page) => (
+                    <Button sx={{ color: 'black' }} key={page}><b>{page}</b></Button>
+                ))}
+                <Box
+                    onMouseEnter={handleMouseEnterHire}
+                    onMouseLeave={handleMouseLeaveHire}
+                    textAlign={'center'}
+                >
+                    <Button
+                        sx={{ color: 'black' }}
+                        endIcon={openHire ? <ExpandLess /> : <ExpandMore />}
                     >
                         <b>Hire Now</b>
                     </Button>
                     <Menu
-                        anchorEl={anchorEl}
-                        open={open}
-                        onClose={handleMouseLeave}
+                        anchorEl={anchorElHire}
+                        open={openHire}
+                        onClose={handleMouseLeaveHire}
                         MenuListProps={{
-                            onMouseLeave: handleMouseLeave,
+                            onMouseLeave: handleMouseLeaveHire,
                             sx: {
                                 backgroundColor: 'primary.main',
                                 color: 'white',
@@ -82,7 +146,7 @@ function NavBar() {
                         {hireOptions.map((option) => (
                             <MenuItem
                                 key={option}
-                                onClick={handleMouseLeave}
+                                onClick={handleMouseLeaveHire}
                                 sx={{
                                     display: 'flex',
                                     flexDirection: 'column',
