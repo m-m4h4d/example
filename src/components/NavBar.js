@@ -19,9 +19,9 @@ function NavBar() {
 
     return (
         <AppBar sx={{ background: 'white', color: 'black', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-            <Box 
-                width={'70%'} 
-                alignItems={'center'} 
+            <Box
+                width={'70%'}
+                alignItems={'center'}
                 sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}
             >
                 <Typography variant='h2'>LOGO</Typography>
@@ -34,8 +34,8 @@ function NavBar() {
                     onMouseLeave={handleMouseLeave}
                     textAlign={'center'}
                 >
-                    <Button 
-                        sx={{ color: 'black' }} 
+                    <Button
+                        sx={{ color: 'black' }}
                         endIcon={open ? <ExpandLess /> : <ExpandMore />}
                     >
                         <b>Hire Now</b>
@@ -44,26 +44,33 @@ function NavBar() {
                         anchorEl={anchorEl}
                         open={open}
                         onClose={handleMouseLeave}
-                        MenuListProps={{ 
-                            onMouseLeave: handleMouseLeave, 
-                            sx: { 
+                        MenuListProps={{
+                            onMouseLeave: handleMouseLeave,
+                            sx: {
                                 backgroundColor: 'primary.main',
                                 color: 'white',
-                                py: 1, 
-                                justifyContent: 'space-evenly',  
+                                py: 1,
+                                justifyContent: 'space-evenly',
                                 '& .MuiMenuItem-root': {
                                     justifyContent: 'space-evenly',
                                     backgroundColor: 'primary.main',
                                     '&:hover': {
                                         backgroundColor: 'white',
                                         color: 'black'
+                                    },
+                                    '&.Mui-focusVisible': {
+                                        backgroundColor: 'primary.main',
+                                        '&:hover': {
+                                            backgroundColor: 'white',
+                                            color: 'black'
+                                        }
                                     }
                                 }
                             }
                         }}
-                        PaperProps={{ 
+                        PaperProps={{
                             elevation: 0,
-                            sx: { 
+                            sx: {
                                 backgroundColor: 'primary.main',
                                 color: 'white'
                             }
@@ -72,19 +79,19 @@ function NavBar() {
                         anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
                     >
                         {hireOptions.map((option) => (
-                            <MenuItem 
-                                key={option} 
-                                onClick={handleMouseLeave} 
+                            <MenuItem
+                                key={option}
+                                onClick={handleMouseLeave}
                                 sx={{
-                                    display: 'flex', 
-                                    flexDirection: 'column', 
-                                    color: 'white', 
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    color: 'white',
                                     backgroundColor: 'primary.main',
                                     my: 1
                                 }}
                             >
                                 {option}
-                                <Divider sx={{ border: '1px solid', width: '100%' }} />
+                                <Divider sx={{ color: 'primary.main', border: '1px solid', width: '100%' }} />
                             </MenuItem>
                         ))}
                     </Menu>
