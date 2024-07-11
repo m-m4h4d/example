@@ -2,14 +2,69 @@ import * as React from 'react';
 import { ExpandMore, ExpandLess, EmojiObjectsOutlined, VerifiedOutlined, PhoneAndroidOutlined } from '@mui/icons-material';
 import { Menu, MenuItem } from '@mui/material';
 import { Box, Button, Typography, Grid } from '@mui/material';
+import {
+    SocialMediaMarketing,
+    AffiliateMarketing,
+    SEO,
+    SEM,
+    LogoAndBrandIdentity,
+    WebAndAppDesign,
+    VisualDesign,
+    MarketingDesign,
+    BusinessWebsiteDesign,
+    ECommerceWebDesignAndDevelopment,
+    LandingPageDesign,
+    DropshippingWebsite,
+    CustomWebDevelopmentServices,
+    PlatformDesign,
+    AndroidAppDevelopment,
+    IOSAppDevelopment,
+    TechnicalWritingServices,
+    ResearchAndAnalysis,
+    ElearningContent
+} from '../assets';
 
 const services = ['Digital Marketing', 'Graphic Designing', 'Web Development', 'Mobile Development', 'SEO Content Writing'];
-const DigitalMarketingOptions = ['Social Media Marketing', 'Affiliate Marketing', 'Search Engine Optimization (SEO)', 'Search Engine Marketing (SEM)'];
-const GraphicDesigningOptions = ['Logo And Brand Identity', 'Web And App Design', 'Visual Design', 'Marketing Design'];
-const WebDevelopmentOptions = ['Business Website Design', 'ECommerce Web Design And Development', 'Landing Page Design', 'Dropshipping Website', 'Custom Web Development Services', 'Platform Design'];
-const MobileDevelopmentOptions = ['Android App Development', 'IOS App Development'];
-const SEOContentWritingOptions = ['Technical Writing Services', 'Research and Analysis', 'Elearning Content'];
-const highlights = [['7+ Years Of Excellence', <VerifiedOutlined fontSize='large' />], ['1000+ Projects Delivered', <PhoneAndroidOutlined fontSize='large' />], ['200+ Technology Experts', <EmojiObjectsOutlined fontSize='large' />]];
+
+const DigitalMarketingOptions = [
+    { label: 'Social Media Marketing', icon: <SocialMediaMarketing style={{ height: '20%' }} /> },
+    { label: 'Affiliate Marketing', icon: <AffiliateMarketing style={{ height: '20%' }} /> },
+    { label: 'Search Engine Optimization (SEO)', icon: <SEO style={{ height: '20%' }} /> },
+    { label: 'Search Engine Marketing (SEM)', icon: <SEM style={{ height: '20%' }} /> }
+];
+
+const GraphicDesigningOptions = [
+    { label: 'Logo And Brand Identity', icon: <LogoAndBrandIdentity style={{ height: '20%' }} /> },
+    { label: 'Web And App Design', icon: <WebAndAppDesign style={{ height: '20%' }} /> },
+    { label: 'Visual Design', icon: <VisualDesign style={{ height: '20%' }} /> },
+    { label: 'Marketing Design', icon: <MarketingDesign style={{ height: '20%' }} /> }
+];
+
+const WebDevelopmentOptions = [
+    { label: 'Business Website Design', icon: <BusinessWebsiteDesign style={{ height: '20%' }} /> },
+    { label: 'ECommerce Web Design', icon: <ECommerceWebDesignAndDevelopment style={{ height: '20%' }} /> },
+    { label: 'Landing Page Design', icon: <LandingPageDesign style={{ height: '20%' }} /> },
+    { label: 'Dropshipping Website', icon: <DropshippingWebsite style={{ height: '20%' }} /> },
+    { label: 'Custom Web Development', icon: <CustomWebDevelopmentServices style={{ height: '20%' }} /> },
+    { label: 'Platform Design', icon: <PlatformDesign style={{ height: '20%' }} /> }
+];
+
+const MobileDevelopmentOptions = [
+    { label: 'Android App Development', icon: <AndroidAppDevelopment style={{ height: '10%' }} /> },
+    { label: 'IOS App Development', icon: <IOSAppDevelopment style={{ height: '10%' }} /> }
+];
+
+const SEOContentWritingOptions = [
+    { label: 'Technical Writing Services', icon: <TechnicalWritingServices style={{ height: '20%' }} /> },
+    { label: 'Research and Analysis', icon: <ResearchAndAnalysis style={{ height: '20%' }} /> },
+    { label: 'Elearning Content', icon: <ElearningContent style={{ height: '20%' }} /> }
+];
+
+const highlights = [
+    { title: '7+ Years Of Excellence', icon: <VerifiedOutlined fontSize='large' /> },
+    { title: '1000+ Projects Delivered', icon: <PhoneAndroidOutlined fontSize='large' /> },
+    { title: '200+ Technology Experts', icon: <EmojiObjectsOutlined fontSize='large' /> }
+];
 
 const Services = () => {
     const [anchorElServices, setAnchorElServices] = React.useState(null);
@@ -124,17 +179,22 @@ const Services = () => {
                                 </MenuItem>
                             ))}
                         </Box>
-                        <Box sx={{ flex: 3, background: 'white', height: '100%', pt: 6, pb: 2 }}>
+                        <Box sx={{ flex: 3, background: 'white', height: '100%', pt: 6, pb: 2, pl: 3 }}>
                             <Grid container id='options' sx={{ height: '100%' }}>
-                                {currentService && getOptions(currentService).map((option) => (
-                                    <Grid md={6}>
-                                        <Typography variant='body2' key={option} sx={{ cursor: 'pointer', ml: 3 }}>{option}</Typography>
+                                {currentService && getOptions(currentService).map((option, index) => (
+                                    <Grid md={6} key={index} sx={{ display: 'flex', justifyContent: 'flex-start' }}>
+                                        <Box sx={{ display: 'flex' }}>
+                                            {option.icon}
+                                            <Typography variant='body2' sx={{ cursor: 'pointer', ml: 1 }}>
+                                                {option.label}
+                                            </Typography>
+                                        </Box>
                                     </Grid>
                                 ))}
                             </Grid>
                         </Box>
                         <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, backgroundColor: '#F0F9FF', px: 7, py: 4, justifyContent: 'space-evenly', height: '100%', alignItems: 'center' }}>
-                            {highlights.map(([title, icon]) => (
+                            {highlights.map(({ title, icon }) => (
                                 <Box
                                     key={title}
                                     sx={{
