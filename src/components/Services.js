@@ -14,8 +14,7 @@ const highlights = [['7+ Years Of Excellence', <VerifiedOutlined fontSize='large
 const Services = () => {
     const [anchorElServices, setAnchorElServices] = React.useState(null);
     const openServices = Boolean(anchorElServices);
-    const [anchorElDM, setAnchorElDM] = React.useState(null);
-    const openDM = Boolean(anchorElDM);
+    const [currentService, setCurrentService] = React.useState(null);
 
     const handleMouseEnterServices = (event) => {
         setAnchorElServices(event.currentTarget);
@@ -23,14 +22,32 @@ const Services = () => {
 
     const handleMouseLeaveServices = () => {
         setAnchorElServices(null);
+        setCurrentService('Digital Marketing');
     };
 
-    const handleMouseEnterDM = (event) => {
-        setAnchorElDM(event.currentTarget);
+    const handleMouseEnterService = (service) => {
+        setCurrentService(service);
     };
 
-    const handleMouseLeaveDM = () => {
-        setAnchorElDM(null);
+    const handleMouseLeaveService = () => {
+        setCurrentService(currentService);
+    };
+
+    const getOptions = (service) => {
+        switch (service) {
+            case 'Digital Marketing':
+                return DigitalMarketingOptions;
+            case 'Graphic Designing':
+                return GraphicDesigningOptions;
+            case 'Web Development':
+                return WebDevelopmentOptions;
+            case 'Mobile Development':
+                return MobileDevelopmentOptions;
+            case 'SEO Content Writing':
+                return SEOContentWritingOptions;
+            default:
+                return DigitalMarketingOptions;
+        }
     };
 
     return (
@@ -90,23 +107,23 @@ const Services = () => {
                 transformOrigin={{ horizontal: 'center', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
             >
-                <Box sx={{ display: 'flex', flexDirection: 'column', height: 368 , p: 0 }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', height: 368, p: 0 }}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0 }}>
                         <Box id='services' sx={{ flex: 2, ml: 3, justifyContent: 'space-evenly', height: '100%', color: 'white', pt: 3 }}>
                             {services.map((service) => (
                                 <MenuItem
-                                    onMouseEnter={handleMouseEnterDM}
-                                    onMouseLeave={handleMouseLeaveDM}
+                                    onMouseEnter={() => handleMouseEnterService(service)}
+                                    onMouseLeave={handleMouseLeaveService}
                                     key={service}>
                                     <b>{service}</b>
                                 </MenuItem>
                             ))}
                         </Box>
-                        <Box  sx={{ flex: 3, background: 'white', height: '100%', pt: 6, pb: 2, px: 2 }}>
-                            <Grid container id='options'  sx={{ height: '100%' }}>
-                                {WebDevelopmentOptions.map((option) => (
-                                    <Grid md={6} sx={{ cursor: 'pointer' }}>
-                                        <Typography variant='body2' key={option}>{option}</Typography>
+                        <Box sx={{ flex: 3, background: 'white', height: '100%', pt: 6, pb: 2 }}>
+                            <Grid container id='options' sx={{ height: '100%' }}>
+                                {currentService && getOptions(currentService).map((option) => (
+                                    <Grid md={6}>
+                                        <Typography variant='body2' key={option} sx={{ cursor: 'pointer' }}>{option}</Typography>
                                     </Grid>
                                 ))}
                             </Grid>
