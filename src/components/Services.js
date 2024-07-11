@@ -54,7 +54,6 @@ const Services = () => {
         <Box
             onMouseEnter={handleMouseEnterServices}
             onMouseLeave={handleMouseLeaveServices}
-            textAlign={'center'}
         >
             <Button
                 sx={{ color: 'black' }}
@@ -70,6 +69,7 @@ const Services = () => {
                     onMouseLeave: handleMouseLeaveServices,
                     sx: {
                         backgroundColor: 'primary.main',
+                        textAlign: 'left',
                         color: 'black',
                         p: 0,
                         height: '100%',
@@ -78,6 +78,7 @@ const Services = () => {
                             justifyContent: 'space-evenly',
                             backgroundColor: 'primary.main',
                             transition: 'all 0.2s ease-in-out',
+                            textAlign: 'left',
                             p: 2,
                             '&:hover': {
                                 backgroundColor: 'white',
@@ -85,6 +86,7 @@ const Services = () => {
                             },
                             '&.Mui-focusVisible': {
                                 backgroundColor: 'white',
+                                textAlign: 'left',
                                 '&:hover': {
                                     backgroundColor: 'white',
                                     color: 'black'
@@ -97,6 +99,7 @@ const Services = () => {
                     elevation: 0,
                     sx: {
                         backgroundColor: 'primary.main',
+                        textAlign: 'left',
                         color: 'white',
                         mt: 2.3,
                         ml: 35,
@@ -109,13 +112,15 @@ const Services = () => {
             >
                 <Box sx={{ display: 'flex', flexDirection: 'column', height: 368, p: 0 }}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0 }}>
-                        <Box id='services' sx={{ flex: 2, ml: 3, justifyContent: 'space-evenly', height: '100%', color: 'white', pt: 3 }}>
+                        <Box id='services' textAlign='left' sx={{ flex: 2, ml: 3, justifyContent: 'space-evenly', height: '100%', color: 'white', pt: 3, alignItems: 'left' }}>
                             {services.map((service) => (
                                 <MenuItem
                                     onMouseEnter={() => handleMouseEnterService(service)}
                                     onMouseLeave={handleMouseLeaveService}
-                                    key={service}>
-                                    <b>{service}</b>
+                                    key={service}
+                                    sx={{ textAlign: 'left' }}
+                                >
+                                    <Typography textAlign={'left'}><b>{service}</b></Typography>
                                 </MenuItem>
                             ))}
                         </Box>
@@ -123,7 +128,7 @@ const Services = () => {
                             <Grid container id='options' sx={{ height: '100%' }}>
                                 {currentService && getOptions(currentService).map((option) => (
                                     <Grid md={6}>
-                                        <Typography variant='body2' key={option} sx={{ cursor: 'pointer' }}>{option}</Typography>
+                                        <Typography variant='body2' key={option} sx={{ cursor: 'pointer', ml: 3 }}>{option}</Typography>
                                     </Grid>
                                 ))}
                             </Grid>
