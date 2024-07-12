@@ -132,7 +132,7 @@ function NavBar() {
                     <Box sx={{ justifyContent: { md: 'flex-start', lg: 'center', p: 0, m: 0, width: '10%' } }}>
                         <Typography variant='h3' sx={{ flexGrow: 1, mx: 1 }}>LOGO</Typography>
                     </Box>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-end' }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-end', width: '100%' }}>
                         <IconButton
                             size="large"
                             aria-label="open drawer"
@@ -159,6 +159,7 @@ function NavBar() {
                             onClose={handleCloseNavMenu}
                             sx={{
                                 display: { md: 'block', lg: 'none' },
+                                width: '100%',
                             }}
                         >
                             {pages.map((page) => (
