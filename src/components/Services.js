@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ExpandMore, ExpandLess, EmojiObjectsOutlined, VerifiedOutlined, PhoneAndroidOutlined } from '@mui/icons-material';
-import { Menu, MenuItem } from '@mui/material';
+import { ListItemText, Menu, MenuItem } from '@mui/material';
 import { Box, Button, Typography, Grid } from '@mui/material';
 import {
     SocialMediaMarketing,
@@ -173,9 +173,9 @@ const Services = () => {
                                     onMouseEnter={() => handleMouseEnterService(service)}
                                     onMouseLeave={handleMouseLeaveService}
                                     key={service}
-                                    sx={{ textAlign: 'left' }}
+                                    sx={{ textAlign: 'left', justifyContent: 'flex-start' }}
                                 >
-                                    <Typography textAlign={'left'}><b>{service}</b></Typography>
+                                    <ListItemText textAlign={'left'} style={{ textAlign: "left" }}><b>{service}</b></ListItemText>
                                 </MenuItem>
                             ))}
                         </Box>
@@ -207,7 +207,7 @@ const Services = () => {
                                         color: 'primary.main',
                                         alignItems: 'center',
                                     }}>
-                                    {icon}<Typography variant='h6' color={'black'} sx={{ ml: 1.5 }}>{title}</Typography>
+                                    {icon}<Typography variant='h6' color={'black'} sx={{ ml: 1 }}>{title}</Typography>
                                 </Box>
                             ))}
                         </Box>
