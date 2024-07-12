@@ -20,16 +20,16 @@ function NavBar() {
 
     return (
         <AppBar sx={{ background: 'white', color: 'black', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-            <Container maxWidth='lg'>
+            <Container maxWidth="xl">
                 <Box
                     width={'100%'}
                     alignItems={'center'}
                     sx={{ display: 'flex', flexDirection: 'row', justifyContent: "center" }}
                 >
-                    <Typography variant='h3' sx={{ mx: { sm: 0, md: 1 } }}>LOGO</Typography>
+                    <Typography variant='h3' sx={{ mx: 0 }}>LOGO</Typography>
                     <Services />
                     {pages.map((page) => (
-                        <Button sx={{ color: 'black', mx: { sm: 0, md: 1 } }} key={page}><b>{page}</b></Button>
+                        <Button sx={{ color: 'black', mx: 0 }} key={page}><b>{page}</b></Button>
                     ))}
                     <Box
                         onMouseEnter={handleMouseEnterHire}
@@ -37,7 +37,7 @@ function NavBar() {
                         textAlign={'center'}
                     >
                         <Button
-                            sx={{ color: 'black', mx: { sm: 0, md: 1 } }}
+                            sx={{ color: 'black', mx: 0 }}
                             endIcon={openHire ? <ExpandLess /> : <ExpandMore />}
                         >
                             <b>Hire Now</b>
@@ -94,12 +94,12 @@ function NavBar() {
                                     }}
                                 >
                                     {option}
-                                    <Divider sx={{ color: 'primary.main', border: '1px solid', width: '100%', mx: { sm: 0, md: 1 } }} />
+                                    <Divider sx={{ color: 'primary.main', border: '1px solid', width: '100%' }} />
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
-                    <Button variant='contained' sx={{ mx: { sm: 0, md: 1 } }}><b>Get A Free Quote</b></Button>
+                    <Button variant='contained' sx={{ mx: 0 }}><b>Get A Free Quote</b></Button>
                 </Box>
             </Container>
         </AppBar>

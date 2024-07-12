@@ -109,7 +109,6 @@ const Services = () => {
         <Box
             onMouseEnter={handleMouseEnterServices}
             onMouseLeave={handleMouseLeaveServices}
-            sx={{ mx: { sm: 0, md: 1 } }}
         >
             <Button
                 sx={{ color: 'black' }}
