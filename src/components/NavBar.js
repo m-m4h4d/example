@@ -92,6 +92,22 @@ function NavBar() {
         setCurrentService(currentService);
     };
 
+    const handleOpenNavMenu = (event) => {
+        setAnchorElNav(event.currentTarget);
+    };
+
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null);
+    };
+
+    const handleMouseEnterHire = (event) => {
+        setAnchorElHire(event.currentTarget);
+    };
+
+    const handleMouseLeaveHire = () => {
+        setAnchorElHire(null);
+    };
+
     const getOptions = (service) => {
         switch (service) {
             case 'Digital Marketing':
@@ -107,22 +123,6 @@ function NavBar() {
             default:
                 return DigitalMarketingOptions;
         }
-    };
-
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
-
-    const handleMouseEnterHire = (event) => {
-        setAnchorElHire(event.currentTarget);
-    };
-
-    const handleMouseLeaveHire = () => {
-        setAnchorElHire(null);
     };
 
     return (
@@ -166,6 +166,68 @@ function NavBar() {
                                     <Typography textAlign="center">{page}</Typography>
                                 </MenuItem>
                             ))}
+                            <MenuItem
+                                onMouseEnter={handleMouseEnterServices}
+                                onMouseLeave={handleMouseEnterServices}
+                            >
+                                <Typography textAlign="center">Services</Typography>
+                                <Menu
+                                    anchorEl={anchorElServices}
+                                    open={openServices}
+                                    onClose={handleMouseLeaveServices}
+                                    MenuListProps={{
+                                        onMouseLeave: handleMouseLeaveServices,
+                                        sx: {
+                                            backgroundColor: 'primary.main',
+                                            color: 'white',
+                                            pb: 1,
+                                            justifyContent: 'space-evenly',
+                                            '& .MuiMenuItem-root': {
+                                                justifyContent: 'space-evenly',
+                                                backgroundColor: 'primary.main',
+                                                transition: 'all 0.2s ease-in-out',
+                                                '&:hover': {
+                                                    backgroundColor: 'white',
+                                                    color: 'black',
+                                                },
+                                                '&.Mui-focusVisible': {
+                                                    backgroundColor: 'primary.main',
+                                                    '&:hover': {
+                                                        backgroundColor: 'white',
+                                                        color: 'black',
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    }}
+                                    PaperProps={{
+                                        elevation: 0,
+                                        sx: {
+                                            backgroundColor: 'primary.main',
+                                            color: 'white',
+                                        },
+                                    }}
+                                    transformOrigin={{ horizontal: 'center', vertical: 'top' }}
+                                    anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
+                                >
+                                    {services.map((option) => (
+                                        <MenuItem
+                                            key={option}
+                                            onClick={handleMouseLeaveServices}
+                                            sx={{
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                color: 'white',
+                                                backgroundColor: 'primary.main',
+                                                mt: 1,
+                                            }}
+                                        >
+                                            {option}
+                                            <Divider sx={{ color: 'primary.main', border: '1px solid', width: '100%' }} />
+                                        </MenuItem>
+                                    ))}
+                                </Menu>
+                            </MenuItem>
                             <MenuItem
                                 onMouseEnter={handleMouseEnterHire}
                                 onMouseLeave={handleMouseLeaveHire}
@@ -227,6 +289,11 @@ function NavBar() {
                                         </MenuItem>
                                     ))}
                                 </Menu>
+                            </MenuItem>
+                            <MenuItem>
+                                <Button variant='contained' sx={{ mx: 1 }}>
+                                    <b>Get A Free Quote</b>
+                                </Button>
                             </MenuItem>
                         </Menu>
                     </Box>
