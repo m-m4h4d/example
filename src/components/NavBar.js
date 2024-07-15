@@ -22,6 +22,7 @@ import {
     ResearchAndAnalysis,
     ElearningContent
 } from '../assets';
+import Hamburger from './Hamburger';
 
 const pages = ['About Us', 'Blogs', 'Career', 'Portfolio', 'Contact Us'];
 const hireOptions = ['Digital Marketer', 'Graphic Designer', 'Web Developer', 'App Developer', 'Content Writer'];
@@ -129,176 +130,14 @@ function NavBar() {
         <AppBar sx={{ background: 'white', color: 'black', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Box sx={{ justifyContent: { md: 'flex-start', lg: 'center', p: 0, m: 0, width: '10%' } }}>
+                    <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-start', p: 0, m: 0, width: '10%' }}>
                         <Typography variant='h3' sx={{ flexGrow: 1, mx: 1 }}>LOGO</Typography>
                     </Box>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-end', width: '100%' }}>
-                        <IconButton
-                            size="large"
-                            aria-label="open drawer"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { md: 'block', lg: 'none' },
-                                width: '100%',
-                            }}
-                        >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))}
-                            <MenuItem
-                                onMouseEnter={handleMouseEnterServices}
-                                onMouseLeave={handleMouseEnterServices}
-                            >
-                                <Typography textAlign="center">Services</Typography>
-                                <Menu
-                                    anchorEl={anchorElServices}
-                                    open={openServices}
-                                    onClose={handleMouseLeaveServices}
-                                    MenuListProps={{
-                                        onMouseLeave: handleMouseLeaveServices,
-                                        sx: {
-                                            backgroundColor: 'primary.main',
-                                            color: 'white',
-                                            pb: 1,
-                                            justifyContent: 'space-evenly',
-                                            '& .MuiMenuItem-root': {
-                                                justifyContent: 'space-evenly',
-                                                backgroundColor: 'primary.main',
-                                                transition: 'all 0.2s ease-in-out',
-                                                '&:hover': {
-                                                    backgroundColor: 'white',
-                                                    color: 'black',
-                                                },
-                                                '&.Mui-focusVisible': {
-                                                    backgroundColor: 'primary.main',
-                                                    '&:hover': {
-                                                        backgroundColor: 'white',
-                                                        color: 'black',
-                                                    },
-                                                },
-                                            },
-                                        },
-                                    }}
-                                    PaperProps={{
-                                        elevation: 0,
-                                        sx: {
-                                            backgroundColor: 'primary.main',
-                                            color: 'white',
-                                        },
-                                    }}
-                                    transformOrigin={{ horizontal: 'center', vertical: 'top' }}
-                                    anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
-                                >
-                                    {services.map((option) => (
-                                        <MenuItem
-                                            key={option}
-                                            onClick={handleMouseLeaveServices}
-                                            sx={{
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                color: 'white',
-                                                backgroundColor: 'primary.main',
-                                                mt: 1,
-                                            }}
-                                        >
-                                            {option}
-                                            <Divider sx={{ color: 'primary.main', border: '1px solid', width: '100%' }} />
-                                        </MenuItem>
-                                    ))}
-                                </Menu>
-                            </MenuItem>
-                            <MenuItem
-                                onMouseEnter={handleMouseEnterHire}
-                                onMouseLeave={handleMouseLeaveHire}
-                            >
-                                <Typography textAlign="center">Hire Now</Typography>
-                                <Menu
-                                    anchorEl={anchorElHire}
-                                    open={openHire}
-                                    onClose={handleMouseLeaveHire}
-                                    MenuListProps={{
-                                        onMouseLeave: handleMouseLeaveHire,
-                                        sx: {
-                                            backgroundColor: 'primary.main',
-                                            color: 'white',
-                                            pb: 1,
-                                            justifyContent: 'space-evenly',
-                                            '& .MuiMenuItem-root': {
-                                                justifyContent: 'space-evenly',
-                                                backgroundColor: 'primary.main',
-                                                transition: 'all 0.2s ease-in-out',
-                                                '&:hover': {
-                                                    backgroundColor: 'white',
-                                                    color: 'black',
-                                                },
-                                                '&.Mui-focusVisible': {
-                                                    backgroundColor: 'primary.main',
-                                                    '&:hover': {
-                                                        backgroundColor: 'white',
-                                                        color: 'black',
-                                                    },
-                                                },
-                                            },
-                                        },
-                                    }}
-                                    PaperProps={{
-                                        elevation: 0,
-                                        sx: {
-                                            backgroundColor: 'primary.main',
-                                            color: 'white',
-                                        },
-                                    }}
-                                    transformOrigin={{ horizontal: 'center', vertical: 'top' }}
-                                    anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
-                                >
-                                    {hireOptions.map((option) => (
-                                        <MenuItem
-                                            key={option}
-                                            onClick={handleMouseLeaveHire}
-                                            sx={{
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                color: 'white',
-                                                backgroundColor: 'primary.main',
-                                                mt: 1,
-                                            }}
-                                        >
-                                            {option}
-                                            <Divider sx={{ color: 'primary.main', border: '1px solid', width: '100%' }} />
-                                        </MenuItem>
-                                    ))}
-                                </Menu>
-                            </MenuItem>
-                            <MenuItem>
-                                <Button variant='contained' sx={{ mx: 1 }}>
-                                    <b>Get A Free Quote</b>
-                                </Button>
-                            </MenuItem>
-                        </Menu>
-                    </Box>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex', xl: 'flex', p: 0, m: 0 }, justifyContent: 'center' }}>
+                    <Hamburger />
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }, justifyContent: 'center', p: 0, m: 0, alignItems: 'center' }}>
+                        <Box sx={{ justifyContent: 'center', alignItems: 'center', display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex', xl: 'flex' } }}>
+                            <Typography variant='h3' sx={{ flexGrow: 1, mx: 1 }}>LOGO</Typography>
+                        </Box>
                         <Box
                             onMouseEnter={handleMouseEnterServices}
                             onMouseLeave={handleMouseLeaveServices}
