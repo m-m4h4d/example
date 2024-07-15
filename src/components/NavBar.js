@@ -110,6 +110,8 @@ function NavBar() {
     const [anchorElServices, setAnchorElServices] = React.useState(null);
     const openServices = Boolean(anchorElServices);
     const [currentService, setCurrentService] = React.useState(null);
+    const [anchorHire, setAnchorHire] = React.useState(null);
+    const [anchorServices, setAnchorServices] = React.useState(null);
 
     const handleMouseEnterServices = (event) => {
         setAnchorElServices(event.currentTarget);
@@ -145,19 +147,19 @@ function NavBar() {
     };
 
     const handleOpenServices = (event) => {
-        setAnchorElServices(event.currentTarget);
+        setAnchorServices(event.currentTarget);
     };
 
     const handleCloseServices = () => {
-        setAnchorElServices(null);
+        setAnchorServices(null);
     };
 
     const handleOpenHire = (event) => {
-        setAnchorElHire(event.currentTarget);
+        setAnchorHire(event.currentTarget);
     };
 
     const handleCloseHire = () => {
-        setAnchorElHire(null);
+        setAnchorHire(null);
     };
 
     const getOptions = (service) => {
@@ -246,11 +248,11 @@ function NavBar() {
                                 }}
                             >
                                 <Typography textAlign="center">Services</Typography>
-                                {anchorElServices ? <ExpandLess /> : <ExpandMore />}
+                                {anchorServices ? <ExpandLess /> : <ExpandMore />}
                             </MenuItem>
                             <Menu
                                 id="menu-services"
-                                anchorEl={anchorElServices}
+                                anchorEl={anchorServices}
                                 anchorOrigin={{
                                     vertical: 'bottom',
                                     horizontal: 'left',
@@ -260,7 +262,7 @@ function NavBar() {
                                     vertical: 'top',
                                     horizontal: 'left',
                                 }}
-                                open={Boolean(anchorElServices)}
+                                open={Boolean(anchorServices)}
                                 onClose={handleCloseServices}
                                 sx={{
                                     display: { md: 'flex', lg: 'none' },
@@ -301,11 +303,11 @@ function NavBar() {
                                 }}
                             >
                                 <Typography textAlign="center">Hire Now</Typography>
-                                {anchorElHire ? <ExpandLess /> : <ExpandMore />}
+                                {anchorHire ? <ExpandLess /> : <ExpandMore />}
                             </MenuItem>
                             <Menu
                                 id="menu-hire"
-                                anchorEl={anchorElHire}
+                                anchorEl={anchorHire}
                                 anchorOrigin={{
                                     vertical: 'bottom',
                                     horizontal: 'left',
@@ -315,7 +317,7 @@ function NavBar() {
                                     vertical: 'top',
                                     horizontal: 'left',
                                 }}
-                                open={Boolean(anchorElHire)}
+                                open={Boolean(anchorHire)}
                                 onClose={handleCloseHire}
                                 sx={{
                                     display: { md: 'block', lg: 'none' },
