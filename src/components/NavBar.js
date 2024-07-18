@@ -21,7 +21,7 @@ import {
     TechnicalWritingServices,
     ResearchAndAnalysis,
     ElearningContent
-} from '../assets';
+} from '../assets/svg';
 
 const pages = ['About Us', 'Blogs', 'Career', 'Portfolio', 'Contact Us'];
 const hireOptions = ['Digital Marketer', 'Graphic Designer', 'Web Developer', 'App Developer', 'Content Writer'];
