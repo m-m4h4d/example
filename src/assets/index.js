@@ -17,6 +17,10 @@ import { ReactComponent as IOSAppDevelopment } from './IOS App Development.svg';
 import { ReactComponent as TechnicalWritingServices } from './Technical Writing Services.svg';
 import { ReactComponent as ResearchAndAnalysis } from './Research and Analysis.svg';
 import { ReactComponent as ElearningContent } from './Elearning Content.svg';
+import { ReactComponent as Enterprise } from './Enterprise.svg';
+import { ReactComponent as Agencies } from './Agencies.svg';
+import { ReactComponent as SME } from './SMEs.svg';
+import { ReactComponent as Startups } from './Startups.svg';
 import footer from './footer.png';
 import agile from './agile.png';
 import ecommerce from './ecommerce.png';
@@ -29,6 +33,10 @@ import realestate from './realestate.png';
 import social from './social.png';
 import travel from './travel.png';
 import solutions from './solutions.png';
+import agencies from './agencies.png';
+import startup from './startup.png';
+import enterprises from './enterprises.png';
+import mediumnsmall from './mediumnsmall.png';
 
 export {
     SocialMediaMarketing,
@@ -50,6 +58,10 @@ export {
     TechnicalWritingServices,
     ResearchAndAnalysis,
     ElearningContent,
+    Enterprise,
+    Agencies,
+    SME,
+    Startups,
     footer,
     agile,
     ecommerce,
@@ -62,4 +74,8 @@ export {
     social,
     travel,
     solutions,
+    agencies,
+    startup,
+    enterprises,
+    mediumnsmall,
 };

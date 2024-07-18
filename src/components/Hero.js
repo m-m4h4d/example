@@ -1,6 +1,29 @@
 import React from 'react';
 import { Box, Container, Typography, Button, Paper, Avatar, Card, CardHeader, CardContent, Grid } from '@mui/material';
-import { agile, ecommerce, education, food, gaming, health, logistics, realestate, social, solutions, travel } from '../assets';
+import { agile, ecommerce, education, food, gaming, health, logistics, realestate, social, solutions, travel, enterprises, Enterprise, SME, mediumnsmall, agencies, Agencies, startup, Startups } from '../assets';
+
+const Partners = [
+    {
+        image: <Enterprise />,
+        title: 'Enterprise',
+        icon: enterprises,
+    },
+    {
+        image: <Agencies />,
+        title: 'Agencies',
+        icon: agencies,
+    },
+    {
+        image: <Startups />,
+        title: 'Startups',
+        icon: startup,
+    },
+    {
+        image: <SME />,
+        title: 'SMEs',
+        icon: mediumnsmall,
+    },
+]
 
 const Testimonials = [
     {
@@ -87,6 +110,27 @@ function stringAvatar(name) {
 const Hero = () => {
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', pt: 12 }}>
+
+            <Box sx={{ background: '#F0F9FF', py: 6, justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column', width: '100%' }}>
+                <Typography variant="h3" component="h1" gutterBottom>
+                    <b>We Work With The Best Partners</b>
+                </Typography>ٖ
+                <Grid container spacing={4} sx={{ width: '80%' }}>
+                    {Partners.map((partner, index) => (
+                        <Grid item key={index} xs={12} sm={6} md={3}>
+                            <Box sx={{ py: 6, display: 'flex', flexDirection: 'column', textAlign: 'center', borderRadius: 4 }}>
+                                <img src={partner.icon} alt={partner.title} style={{ objectFit: 'contain', width: '100%', borderRadius: 19 }} />
+                                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', mt: 2}}>
+                                     {partner.image}
+                                    <Typography variant="h6" sx={{ mx: 2 }}>
+                                        {partner.title}
+                                    </Typography>
+                                </Box>
+                            </Box>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
 
             <Container maxWidth="md" sx={{ textAlign: 'center', py: 10, px: 0, mx: 0 }}>
                 <Typography variant="h3" component="h1" gutterBottom sx={{ color: 'primary.main' }}>
