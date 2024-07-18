@@ -11,7 +11,7 @@ const Footer = () => {
                     borderRadius: 19,
                     width: '50%',
                     position: 'absolute',
-                    top: 50,
+                    top: 60,
                     left: '50%',
                     transform: 'translateX(-50%)'
                 }} />
