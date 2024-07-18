@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Container, Typography, Button, Paper, Avatar, Card, CardHeader, CardContent } from '@mui/material';
-import { agile } from '../assets';
+import { Box, Container, Typography, Button, Paper, Avatar, Card, CardHeader, CardContent, Grid } from '@mui/material';
+import { agile, ecommerce, education, food, gaming, health, logistics, realestate, social, solutions, travel } from '../assets';
 
 const Testimonials = [
     {
@@ -14,6 +14,49 @@ const Testimonials = [
     {
         name: 'Sam Wilson, Finland',
         text: '"I rely on Web Digital Sphere for extending my small mobile app development agency into a company providing custom mobile app development services with enterprise solutions!"'
+    }
+]
+
+const Industries = [
+    {
+        icon: ecommerce,
+        title: 'Retail / Ecommerce',
+    },
+    {
+        icon: education,
+        title: 'Education & e-learning',
+    },
+    {
+        icon: food,
+        title: 'Food & Restaurant',
+    },
+    {
+        icon: gaming,
+        title: 'Gaming',
+    },
+    {
+        icon: realestate,
+        title: 'Real Estate',
+    },
+    {
+        icon: health,
+        title: 'Health & Fitness',
+    },
+    {
+        icon: logistics,
+        title: 'Logistics & Distribution',
+    },
+    {
+        icon: social,
+        title: 'Social Networking',
+    },
+    {
+        icon: solutions,
+        title: 'On Demand Solutions',
+    },
+    {
+        icon: travel,
+        title: 'Travel & Hospitality',
     }
 ]
 
@@ -44,32 +87,13 @@ function stringAvatar(name) {
 const Hero = () => {
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', pt: 12 }}>
-            <Box sx={{ background: '#F0F9FF', py: 6, justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column', width: '100%' }}>
-                <Typography variant='h4' sx={{ my: 4 }}>
-                    <b>Testimonials</b>
-                </Typography>
-                <Paper sx={{ justifyContent: 'center', alignItems: 'center', display: 'flex', width: '40%', flexDirection: 'column', borderRadius: 8, backgroundColor: 'primary.main' }}>
-                        {Testimonials.map((testimonial, index) => (
-                            <Card key={index} sx={{ display: 'flex', justifyContent: 'space-around', borderRadius: 6, m: 1 }}>
-                                <Box sx={{ pr: 8 }}>
-                                    <CardContent>
-                                        <Typography variant="body1" component="p">
-                                            {testimonial.text}
-                                        </Typography>
-                                    </CardContent>
-                                    <CardHeader title={testimonial.name} />
-                                </Box>
-                                <Avatar {...stringAvatar(testimonial.name)} sx={{ width: 100, height: 100, right: 30, top: 20, bgcolor: stringToColor(testimonial.name) }} />
-                            </Card>
-                        ))}
-                </Paper>
-            </Box>
+
             <Container maxWidth="md" sx={{ textAlign: 'center', py: 10, px: 0, mx: 0 }}>
                 <Typography variant="h3" component="h1" gutterBottom sx={{ color: 'primary.main' }}>
                     <Typography variant="h3" gutterBottom component="span" sx={{ color: 'black' }}><b>Our</b></Typography>
                     <b> Agile Development Strategy</b>
                 </Typography>ٖ
-                <img src={agile} alt="Agile Software Development" />
+                <img src={agile} alt="Agile Software Development" style={{ width: '100%' }} />
                 <Typography variant="body2" component="p" sx={{ mt: 4 }}>
                     To benefit from our work ethics act now,
                 </Typography>
@@ -77,6 +101,47 @@ const Hero = () => {
                     Get in Touch
                 </Button>
             </Container>
+
+            <Box sx={{ background: '#F0F9FF', py: 6, justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column', width: '100%' }}>
+                <Typography variant="h3" component="h1" gutterBottom sx={{ color: 'primary.main' }}>
+                    <Typography variant="h3" gutterBottom component="span" sx={{ color: 'black' }}><b>Industries</b></Typography>
+                    <b> We Work In</b>
+                </Typography>ٖ
+                <Grid container spacing={4} columns={15} sx={{ width: '80%' }}>
+                    {Industries.map((industry, index) => (
+                        <Grid item key={index} xs={15} sm={7} md={3}>
+                            <Card sx={{ px: 8, py: 6, justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column', textAlign: 'center', height: '40%', borderRadius: 4 }}>
+                                <img src={industry.icon} alt={industry.title} style={{ objectFit: 'contain', height: 50 }} />
+                                <Typography variant="h6" sx={{ mt: 2 }}>
+                                    {industry.title}
+                                </Typography>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Box>
+
+            <Box sx={{ background: '#F0F9FF', py: 6, justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column', width: '100%' }}>
+                <Typography variant='h3' sx={{ my: 4 }}>
+                    <b>Testimonials</b>
+                </Typography>
+                <Paper sx={{ justifyContent: 'center', alignItems: 'center', display: 'flex', width: '40%', flexDirection: 'column', borderRadius: 8, backgroundColor: 'primary.main' }}>
+                    {Testimonials.map((testimonial, index) => (
+                        <Card key={index} sx={{ display: 'flex', justifyContent: 'space-around', borderRadius: 6, m: 1 }}>
+                            <Box sx={{ pr: 8 }}>
+                                <CardContent>
+                                    <Typography variant="body1" component="p">
+                                        {testimonial.text}
+                                    </Typography>
+                                </CardContent>
+                                <CardHeader title={testimonial.name} />
+                            </Box>
+                            <Avatar {...stringAvatar(testimonial.name)} sx={{ width: 100, height: 100, right: 30, top: 20, bgcolor: stringToColor(testimonial.name) }} />
+                        </Card>
+                    ))}
+                </Paper>
+            </Box>
+            
         </Box>
     );
 };
