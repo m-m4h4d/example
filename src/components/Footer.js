@@ -3,6 +3,12 @@ import { Box, Container, Grid, Typography, Link, Divider, Button } from '@mui/ma
 import { Facebook, Instagram, LinkedIn, X } from '@mui/icons-material';
 import { footer } from '../assets/images';
 
+const Buttons = {
+    'Services': ['Digital Marketing', 'Graphic Designing', 'Web Development', 'Mobile Development', 'SEO Content Writing'],
+    'Company': ['About Us', 'Careers', 'Blogs', 'Contact Us'],
+    'Hire Now': ['Digital Marketer', 'Graphic Designer', 'Web Developer', 'App Developer', 'Content Writer'],
+}
+
 const Footer = () => {
     return (
         <footer>
@@ -73,63 +79,32 @@ const Footer = () => {
                                 </Box>
                             </Box>
                         </Grid>
-                        <Grid item xs={12} sm={6} md={3}>
-                            <Typography variant="h6" gutterBottom>
-                                <b>Services</b>
-                            </Typography>
-                            <Button variant="contained" href="#" sx={{ borderRadius: 999, backgroundColor: '#172554', '&:hover': { backgroundColor: 'primary.main' }, mb: 1, boxShadow: 'none' }}>
-                                Digital Marketing
-                            </Button>
-                            <Button variant="contained" href="#" sx={{ borderRadius: 999, backgroundColor: '#172554', '&:hover': { backgroundColor: 'primary.main' }, mb: 1, boxShadow: 'none' }}>
-                                Graphic Designing
-                            </Button>
-                            <Button variant="contained" href="#" sx={{ borderRadius: 999, backgroundColor: '#172554', '&:hover': { backgroundColor: 'primary.main' }, mb: 1, boxShadow: 'none' }}>
-                                Web Development
-                            </Button>
-                            <Button variant="contained" href="#" sx={{ borderRadius: 999, backgroundColor: '#172554', '&:hover': { backgroundColor: 'primary.main' }, mb: 1, boxShadow: 'none' }}>
-                                Mobile Development
-                            </Button>
-                            <Button variant="contained" href="#" sx={{ borderRadius: 999, backgroundColor: '#172554', '&:hover': { backgroundColor: 'primary.main' }, mb: 1, boxShadow: 'none' }}>
-                                SEO Content Writing
-                            </Button>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={3}>
-                            <Typography variant="h6" gutterBottom>
-                                <b>Company</b>
-                            </Typography>
-                            <Button variant="contained" href="#" sx={{ borderRadius: 999, backgroundColor: '#172554', '&:hover': { backgroundColor: 'primary.main' }, mb: 1, boxShadow: 'none' }}>
-                                About Us
-                            </Button><br />
-                            <Button variant="contained" href="#" sx={{ borderRadius: 999, backgroundColor: '#172554', '&:hover': { backgroundColor: 'primary.main' }, mb: 1, boxShadow: 'none' }}>
-                                Blogs
-                            </Button><br />
-                            <Button variant="contained" href="#" sx={{ borderRadius: 999, backgroundColor: '#172554', '&:hover': { backgroundColor: 'primary.main' }, mb: 1, boxShadow: 'none' }}>
-                                Career
-                            </Button><br />
-                            <Button variant="contained" href="#" sx={{ borderRadius: 999, backgroundColor: '#172554', '&:hover': { backgroundColor: 'primary.main' }, mb: 1, boxShadow: 'none' }}>
-                                Contact Us
-                            </Button>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={3}>
-                            <Typography variant="h6" gutterBottom>
-                                <b>Hire Now</b>
-                            </Typography>
-                            <Button variant="contained" href="#" sx={{ borderRadius: 999, backgroundColor: '#172554', '&:hover': { backgroundColor: 'primary.main' }, mb: 1, boxShadow: 'none' }}>
-                                Digital Marketer
-                            </Button>
-                            <Button variant="contained" href="#" sx={{ borderRadius: 999, backgroundColor: '#172554', '&:hover': { backgroundColor: 'primary.main' }, mb: 1, boxShadow: 'none' }}>
-                                Graphic Designer
-                            </Button>
-                            <Button variant="contained" href="#" sx={{ borderRadius: 999, backgroundColor: '#172554', '&:hover': { backgroundColor: 'primary.main' }, mb: 1, boxShadow: 'none' }}>
-                                Web Developer
-                            </Button>
-                            <Button variant="contained" href="#" sx={{ borderRadius: 999, backgroundColor: '#172554', '&:hover': { backgroundColor: 'primary.main' }, mb: 1, boxShadow: 'none' }}>
-                                App Developer
-                            </Button>
-                            <Button variant="contained" href="#" sx={{ borderRadius: 999, backgroundColor: '#172554', '&:hover': { backgroundColor: 'primary.main' }, mb: 1, boxShadow: 'none' }}>
-                                Content Writer
-                            </Button>
-                        </Grid>
+                        {Object.entries(Buttons).map(([section, items]) => (
+                            <Grid item xs={12} sm={6} md={3} key={section}>
+                                <Typography variant="h6" gutterBottom sx={{ ml: 1 }}>
+                                    <b>{section}</b>
+                                </Typography>
+                                {items.map((item, index) => (
+                                    <Box>
+                                        <Button
+                                            variant="contained"
+                                            href="#"
+                                            key={index}
+                                            sx={{
+                                                borderRadius: 999,
+                                                backgroundColor: '#172554',
+                                                '&:hover': { backgroundColor: 'primary.main' },
+                                                mb: 1,
+                                                ml: 1,
+                                                boxShadow: 'none'
+                                            }}
+                                        >
+                                            {item}
+                                        </Button>
+                                    </Box>
+                                ))}
+                            </Grid>
+                        ))}
                     </Grid>
                     <Divider sx={{ borderColor: 'inherit', mt: 3 }} />
                     <Box sx={{ textAlign: 'center', mt: 2, flexDirection: 'row', display: 'flex', justifyContent: 'space-between' }}>
