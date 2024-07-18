@@ -1,6 +1,9 @@
 import React from 'react';
 import { Box, Container, Typography, Button, Paper, Avatar, Card, CardHeader, CardContent } from '@mui/material';
 import { agile } from '../assets';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Testimonials = [
     {
@@ -42,6 +45,19 @@ function stringAvatar(name) {
 }
 
 const Hero = () => {
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: false,
+        fade: true,
+        cssEase: 'linear'
+    };
+
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', pt: 12 }}>
             <Container sx={{ background: '#F0F9FF', py: 6, justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
@@ -49,19 +65,21 @@ const Hero = () => {
                     <b>Testimonials</b>
                 </Typography>
                 <Paper sx={{ justifyContent: 'center', alignItems: 'center', display: 'flex', width: '60%', boxShadow: 'none', flexDirection: 'column', borderRadius: 8 }}>
-                    {Testimonials.map((testimonial, index) => (
-                        <Card key={index} sx={{ display: 'flex', justifyContent: 'space-around', boxShadow: 'none', borderRadius: 6 }}>
-                            <Box sx={{ pr: 8 }}>
-                                <CardContent>
-                                    <Typography variant="body1" component="p">
-                                        {testimonial.text}
-                                    </Typography>
-                                </CardContent>
-                                <CardHeader title={testimonial.name} />
-                            </Box>
-                            <Avatar {...stringAvatar(testimonial.name)} sx={{ width: 100, height: 100, right: 30, top: 20, bgcolor: stringToColor(testimonial.name) }} />
-                        </Card>
-                    ))}
+                    <Slider {...settings}>
+                        {Testimonials.map((testimonial, index) => (
+                            <Card key={index} sx={{ display: 'flex', justifyContent: 'space-around', boxShadow: 'none', borderRadius: 6 }}>
+                                <Box sx={{ pr: 8 }}>
+                                    <CardContent>
+                                        <Typography variant="body1" component="p">
+                                            {testimonial.text}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardHeader title={testimonial.name} />
+                                </Box>
+                                <Avatar {...stringAvatar(testimonial.name)} sx={{ width: 100, height: 100, right: 30, top: 20, bgcolor: stringToColor(testimonial.name) }} />
+                            </Card>
+                        ))}
+                    </Slider>
                 </Paper>
             </Container>
             <Container maxWidth="md" sx={{ textAlign: 'center', py: 10, px: 0, mx: 0 }}>
