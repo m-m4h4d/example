@@ -1,9 +1,6 @@
 import React from 'react';
 import { Box, Container, Typography, Button, Paper, Avatar, Card, CardHeader, CardContent } from '@mui/material';
 import { agile } from '../assets';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const Testimonials = [
     {
@@ -32,7 +29,7 @@ function stringToColor(string) {
 
     for (i = 0; i < 3; i += 1) {
         const value = (hash >> (i * 8)) & 0xff;
-        color += `00${value.toString(16)}`.slice(-2);
+        color += `${value.toString(16)}`;
     }
 
     return color;
@@ -45,29 +42,15 @@ function stringAvatar(name) {
 }
 
 const Hero = () => {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        arrows: false,
-        fade: true,
-        cssEase: 'linear'
-    };
-
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', pt: 12 }}>
-            <Container sx={{ background: '#F0F9FF', py: 6, justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
+            <Box sx={{ background: '#F0F9FF', py: 6, justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column', width: '100%' }}>
                 <Typography variant='h4' sx={{ my: 4 }}>
                     <b>Testimonials</b>
                 </Typography>
-                <Paper sx={{ justifyContent: 'center', alignItems: 'center', display: 'flex', width: '60%', boxShadow: 'none', flexDirection: 'column', borderRadius: 8 }}>
-                    <Slider {...settings}>
+                <Paper sx={{ justifyContent: 'center', alignItems: 'center', display: 'flex', width: '40%', flexDirection: 'column', borderRadius: 8, backgroundColor: 'primary.main' }}>
                         {Testimonials.map((testimonial, index) => (
-                            <Card key={index} sx={{ display: 'flex', justifyContent: 'space-around', boxShadow: 'none', borderRadius: 6 }}>
+                            <Card key={index} sx={{ display: 'flex', justifyContent: 'space-around', borderRadius: 6, m: 1 }}>
                                 <Box sx={{ pr: 8 }}>
                                     <CardContent>
                                         <Typography variant="body1" component="p">
@@ -79,9 +62,8 @@ const Hero = () => {
                                 <Avatar {...stringAvatar(testimonial.name)} sx={{ width: 100, height: 100, right: 30, top: 20, bgcolor: stringToColor(testimonial.name) }} />
                             </Card>
                         ))}
-                    </Slider>
                 </Paper>
-            </Container>
+            </Box>
             <Container maxWidth="md" sx={{ textAlign: 'center', py: 10, px: 0, mx: 0 }}>
                 <Typography variant="h3" component="h1" gutterBottom sx={{ color: 'primary.main' }}>
                     <Typography variant="h3" gutterBottom component="span" sx={{ color: 'black' }}><b>Our</b></Typography>
