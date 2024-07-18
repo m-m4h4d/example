@@ -17,6 +17,8 @@ import { ReactComponent as IOSAppDevelopment } from './IOS App Development.svg';
 import { ReactComponent as TechnicalWritingServices } from './Technical Writing Services.svg';
 import { ReactComponent as ResearchAndAnalysis } from './Research and Analysis.svg';
 import { ReactComponent as ElearningContent } from './Elearning Content.svg';
+import footer from './footer.png';
+import agile from './agile.png';
 
 export {
     SocialMediaMarketing,
@@ -37,5 +39,7 @@ export {
     IOSAppDevelopment,
     TechnicalWritingServices,
     ResearchAndAnalysis,
-    ElearningContent
+    ElearningContent,
+    footer,
+    agile,
 };
