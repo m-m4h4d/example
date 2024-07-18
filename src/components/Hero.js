@@ -17,6 +17,30 @@ const Testimonials = [
     }
 ]
 
+function stringToColor(string) {
+    let hash = 0;
+    let i;
+
+    for (i = 0; i < string.length; i += 1) {
+        hash = string.charCodeAt(i) + ((hash << 5) - hash);
+    }
+
+    let color = '#';
+
+    for (i = 0; i < 3; i += 1) {
+        const value = (hash >> (i * 8)) & 0xff;
+        color += `00${value.toString(16)}`.slice(-2);
+    }
+
+    return color;
+}
+
+function stringAvatar(name) {
+    return {
+        children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+    };
+}
+
 const Hero = () => {
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', pt: 12 }}>
@@ -35,7 +59,7 @@ const Hero = () => {
                                 </CardContent>
                                 <CardHeader title={testimonial.name} />
                             </Box>
-                            <Avatar sx={{ width: 100, height: 100, right: 30, top: 20 }} />
+                            <Avatar {...stringAvatar(testimonial.name)} sx={{ width: 100, height: 100, right: 30, top: 20, bgcolor: stringToColor(testimonial.name) }} />
                         </Card>
                     ))}
                 </Paper>
