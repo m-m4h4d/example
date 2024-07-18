@@ -97,7 +97,7 @@ const Hero = () => {
                 <Typography variant="body2" component="p" sx={{ mt: 4 }}>
                     To benefit from our work ethics act now,
                 </Typography>
-                <Button variant="contained" color="primary" sx={{ height: 45, mt: 1 }}>
+                <Button variant="contained" color="primary" sx={{ py: 1.5, mt: 1 }}>
                     Get in Touch
                 </Button>
             </Container>
@@ -141,7 +141,7 @@ const Hero = () => {
                     ))}
                 </Paper>
             </Box>
-            
+
         </Box>
     );
 };

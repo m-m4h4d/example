@@ -32,8 +32,8 @@ const Footer = () => {
                     <Typography variant='h6' sx={{ my: 1, mx: 14 }}>
                         Looking for answers and don't know where to begin? Plan your next venture with our expert guidance and consultancy.
                     </Typography>
-                    <Button variant="contained" sx={{ background: 'white', color: 'primary.main', '&:hover': { background: '#F0F9FF' }, mt: 3 }}>
-                        Learn More
+                    <Button variant="contained" sx={{ background: 'white', color: 'primary.main', '&:hover': { background: '#F0F9FF' }, mt: 3, py: 1.5 }}>
+                        Get Started Now
                     </Button>
                 </Box>
             </Box>
