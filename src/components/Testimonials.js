@@ -1,6 +1,6 @@
 import React from 'react';
 import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
-import 'pure-react-carousel/dist/react-carousel.es.css';
+import 'pure-react-carousel/dist/react-carousel.cjs.css';
 import { Box, Paper, Avatar, Card, CardContent, CardHeader, Typography } from '@mui/material';
 
 const Testimonies = [
