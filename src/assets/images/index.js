@@ -14,6 +14,8 @@ import agencies from './agencies.png';
 import startup from './startup.png';
 import enterprises from './enterprises.png';
 import mediumnsmall from './mediumnsmall.png';
+import imageicon from './image-icons.png';
+import w from './w.png';
 
 export {
     footer,
@@ -32,4 +34,6 @@ export {
     startup,
     enterprises,
     mediumnsmall,
+    imageicon,
+    w,
 };

@@ -21,6 +21,9 @@ import { ReactComponent as Enterprise } from './Enterprise.svg';
 import { ReactComponent as Agencies } from './Agencies.svg';
 import { ReactComponent as SME } from './SMEs.svg';
 import { ReactComponent as Startups } from './Startups.svg';
+import { ReactComponent as WebDesignServices } from './WebDesignServices.svg';
+import { ReactComponent as GraphicDesignServices } from './GraphicDesignServices.svg';
+import { ReactComponent as MarketingServices } from './MarketingServices.svg';
 
 export {
     SocialMediaMarketing,
@@ -46,4 +49,7 @@ export {
     Agencies,
     SME,
     Startups,
+    WebDesignServices,
+    GraphicDesignServices,
+    MarketingServices,
 };
