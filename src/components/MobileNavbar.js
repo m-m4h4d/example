@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ExpandMore, Menu as MenuIcon, Close } from '@mui/icons-material';
-import { Typography, Box, Button, MenuItem, Divider, IconButton, Paper, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import { Typography, Box, Button, MenuItem, IconButton, Paper, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 
 const pages = ['About Us', 'Blogs', 'Career', 'Portfolio', 'Contact Us'];
 const hireOptions = ['Digital Marketer', 'Graphic Designer', 'Web Developer', 'App Developer', 'Content Writer'];
@@ -44,6 +44,7 @@ const serviceOptions = {
 function MobileNavbar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [expanded, setExpanded] = React.useState(false);
+    const servicesRef = React.useRef(null);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -57,6 +58,15 @@ function MobileNavbar() {
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     };
+
+    React.useEffect(() => {
+        if (expanded === 'panel1' && servicesRef.current) {
+            window.scrollTo({
+                top: servicesRef.current.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    }, [expanded]);
 
     return (
         <>
@@ -93,6 +103,7 @@ function MobileNavbar() {
                             display: 'flex',
                             flexDirection: 'column',
                             color: 'primary.main',
+                            overflowY: 'auto'
                         }}
                     >
                         {pages.map((page) => (
@@ -110,14 +121,26 @@ function MobileNavbar() {
                                 <Typography textAlign="center">{page}</Typography>
                             </MenuItem>
                         ))}
-                        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} elevation={0} sx={{ m: 0, p: 0 }}>
-                            <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel1d-content" id="panel1d-header">
+                        <Accordion
+                            expanded={expanded === 'panel1'}
+                            onChange={handleChange('panel1')}
+                            elevation={0}
+                            sx={{
+                                m: 0,
+                                p: 0,
+                                color: 'primary.main',
+                                '&:hover': {
+                                    backgroundColor: 'primary.dark',
+                                    color: 'white',
+                                    cursor: 'pointer',
+                                },
+                            }}>
+                            <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel1d-content" id="panel1d-header" sx={{ my: 0, py: 0 }}>
                                 <Typography textAlign="center">Services</Typography>
                             </AccordionSummary>
-                            <AccordionDetails>
+                            <AccordionDetails ref={servicesRef} sx={{ my: 0, py: 0 }}>
                                 {Object.keys(serviceOptions).map((service) => (
                                     <React.Fragment key={service}>
-                                        <Divider />
                                         <MenuItem onClick={handleChange('panel1')}>
                                             <Typography>{service}</Typography>
                                         </MenuItem>
@@ -128,16 +151,28 @@ function MobileNavbar() {
                                                 </MenuItem>
                                             ))}
                                         </Box>
-                                        <Divider />
                                     </React.Fragment>
                                 ))}
                             </AccordionDetails>
                         </Accordion>
-                        <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')} elevation={0} sx={{ m: 0, p: 0 }}>
-                            <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel1d-content" id="panel1d-header">
+                        <Accordion
+                            expanded={expanded === 'panel2'}
+                            onChange={handleChange('panel2')}
+                            elevation={0}
+                            sx={{
+                                m: 0,
+                                p: 0,
+                                color: 'primary.main',
+                                '&:hover': {
+                                    backgroundColor: 'primary.dark',
+                                    color: 'white',
+                                    cursor: 'pointer',
+                                },
+                            }}>
+                            <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel2d-content" id="panel2d-header" sx={{ my: 0, py: 0 }}>
                                 <Typography textAlign="center">Hire Now</Typography>
                             </AccordionSummary>
-                            <AccordionDetails>
+                            <AccordionDetails sx={{ my: 0, py: 0 }}>
                                 {hireOptions.map((option) => (
                                     <MenuItem key={option} onClick={handleChange('panel2')}>
                                         <Typography textAlign="center">{option}</Typography>
