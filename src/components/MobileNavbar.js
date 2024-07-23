@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { ExpandLess, ExpandMore, Menu as MenuIcon, Close } from '@mui/icons-material';
-import { Typography, Box, Button, Menu, MenuItem, Divider, IconButton, Paper } from '@mui/material';
+import { ExpandMore, Menu as MenuIcon, Close } from '@mui/icons-material';
+import { Typography, Box, Button, MenuItem, Divider, IconButton, Paper, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 
 const pages = ['About Us', 'Blogs', 'Career', 'Portfolio', 'Contact Us'];
 const hireOptions = ['Digital Marketer', 'Graphic Designer', 'Web Developer', 'App Developer', 'Content Writer'];
@@ -43,8 +43,7 @@ const serviceOptions = {
 
 function MobileNavbar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorHire, setAnchorHire] = React.useState(null);
-    const [anchorServices, setAnchorServices] = React.useState(null);
+    const [expanded, setExpanded] = React.useState(false);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -52,180 +51,109 @@ function MobileNavbar() {
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
+        setExpanded(false);
     };
 
-    const handleOpenServices = (event) => {
-        setAnchorServices(event.currentTarget);
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
     };
 
-    const handleCloseServices = () => {
-        setAnchorServices(null);
-    };
-
-    const handleOpenHire = (event) => {
-        setAnchorHire(event.currentTarget);
-    };
-
-    const handleCloseHire = () => {
-        setAnchorHire(null);
-    };
-
-    return (<>
-        <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-start', p: 0, m: 0, width: '10%' }}>
-            <Typography variant='h3' sx={{ flexGrow: 1, mx: 1 }}>LOGO</Typography>
-        </Box>
-        <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-end', width: '100%' }}>
-            <IconButton
-                size="large"
-                aria-label="open drawer"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-            >
-                {anchorElNav ? <Close /> : <MenuIcon />}
-            </IconButton>
-            <Paper
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                    display: { md: 'block', lg: 'none' },
-                    width: '100%',
-                    color: 'primary.main',
-                }}
-            >
-                {pages.map((page) => (
-                    <MenuItem
-                        key={page}
-                        onClick={handleCloseNavMenu}
-                        sx={{
-                            color: 'primary.main',
-                            '&:hover': {
-                                backgroundColor: 'primary.dark',
-                                color: 'white',
-                                cursor: 'pointer',
-                            },
-                        }}>
-                        <Typography textAlign="center">{page}</Typography>
-                    </MenuItem>
-                ))}
-                <MenuItem
-                    onClick={handleOpenServices}
+    return (
+        <>
+            <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-start', p: 0, m: 0, width: '10%' }}>
+                <Typography variant='h3' sx={{ flexGrow: 1, mx: 1 }}>LOGO</Typography>
+            </Box>
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-end', width: '100%' }}>
+                <IconButton
+                    size="large"
                     aria-label="open drawer"
-                    aria-controls="menu-services"
+                    aria-controls="menu-appbar"
                     aria-haspopup="true"
-                    sx={{
-                        justifyContent: 'space-between',
-                        color: 'primary.main',
-                        '&:hover': {
-                            backgroundColor: 'primary.dark',
-                            color: 'white',
-                            cursor: 'pointer',
-                        },
-                    }}
+                    onClick={anchorElNav ? handleCloseNavMenu : handleOpenNavMenu}
+                    color="inherit"
                 >
-                    <Typography textAlign="center">Services</Typography>
-                    {anchorServices ? <ExpandLess /> : <ExpandMore />}
-                </MenuItem>
-                <Menu
-                    id="menu-services"
-                    anchorEl={anchorServices}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'left',
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'left',
-                    }}
-                    open={Boolean(anchorServices)}
-                    onClose={handleCloseServices}
-                    sx={{
-                        display: { md: 'flex', lg: 'none' },
-                        width: '100%',
-                        flexDirection: 'column',
-                    }}
-                >
-                    {Object.keys(serviceOptions).map((service) => (
-                        <React.Fragment key={service}>
-                            <Divider />
-                            <MenuItem>
-                                <Typography>{service}</Typography>
+                    {anchorElNav ? <Close /> : <MenuIcon />}
+                </IconButton>
+                {anchorElNav && (
+                    <Paper
+                        id="menu-appbar"
+                        anchorOrigin={{
+                            vertical: 'top',
+                            horizontal: 'center',
+                        }}
+                        open={Boolean(anchorElNav)}
+                        onClose={handleCloseNavMenu}
+                        sx={{
+                            position: 'fixed',
+                            top: 60,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            zIndex: 10,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            color: 'primary.main',
+                        }}
+                    >
+                        {pages.map((page) => (
+                            <MenuItem
+                                key={page}
+                                onClick={handleCloseNavMenu}
+                                sx={{
+                                    color: 'primary.main',
+                                    '&:hover': {
+                                        backgroundColor: 'primary.dark',
+                                        color: 'white',
+                                        cursor: 'pointer',
+                                    },
+                                }}>
+                                <Typography textAlign="center">{page}</Typography>
                             </MenuItem>
-                            <Box sx={{ display: 'flex', flexDirection: 'column', pl: 2 }}>
-                                {serviceOptions[service].map((subOption) => (
-                                    <MenuItem key={subOption} onClick={handleCloseServices}>
-                                        <Typography sx={{ color: 'primary.main' }}>{subOption}</Typography>
+                        ))}
+                        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} elevation={0} sx={{ m: 0, p: 0 }}>
+                            <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel1d-content" id="panel1d-header">
+                                <Typography textAlign="center">Services</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                {Object.keys(serviceOptions).map((service) => (
+                                    <React.Fragment key={service}>
+                                        <Divider />
+                                        <MenuItem onClick={handleChange('panel1')}>
+                                            <Typography>{service}</Typography>
+                                        </MenuItem>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', pl: 2 }}>
+                                            {serviceOptions[service].map((subOption) => (
+                                                <MenuItem key={subOption} onClick={handleChange('panel1')}>
+                                                    <Typography sx={{ color: 'primary.main' }}>{subOption}</Typography>
+                                                </MenuItem>
+                                            ))}
+                                        </Box>
+                                        <Divider />
+                                    </React.Fragment>
+                                ))}
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')} elevation={0} sx={{ m: 0, p: 0 }}>
+                            <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel1d-content" id="panel1d-header">
+                                <Typography textAlign="center">Hire Now</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                {hireOptions.map((option) => (
+                                    <MenuItem key={option} onClick={handleChange('panel2')}>
+                                        <Typography textAlign="center">{option}</Typography>
                                     </MenuItem>
                                 ))}
-                            </Box>
-                            <Divider />
-                        </React.Fragment>
-                    ))}
-                </Menu>
-                <MenuItem
-                    onClick={handleOpenHire}
-                    aria-label="open drawer"
-                    aria-controls="menu-hire"
-                    aria-haspopup="true"
-                    sx={{
-                        justifyContent: 'space-between',
-                        color: 'primary.main',
-                        '&:hover': {
-                            backgroundColor: 'primary.dark',
-                            color: 'white',
-                            cursor: 'pointer',
-                        },
-                    }}
-                >
-                    <Typography textAlign="center">Hire Now</Typography>
-                    {anchorHire ? <ExpandLess /> : <ExpandMore />}
-                </MenuItem>
-                <Menu
-                    id="menu-hire"
-                    anchorEl={anchorHire}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'left',
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'left',
-                    }}
-                    open={Boolean(anchorHire)}
-                    onClose={handleCloseHire}
-                    sx={{
-                        display: { md: 'block', lg: 'none' },
-                        width: '100%',
-                    }}
-                >
-                    {hireOptions.map((option) => (
-                        <MenuItem key={option} onClick={handleCloseHire}>
-                            <Typography textAlign="center">{option}</Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                        <MenuItem>
+                            <Button variant='contained' sx={{ mx: 1 }}>
+                                <b>Get A Free Quote</b>
+                            </Button>
                         </MenuItem>
-                    ))}
-                </Menu>
-                <MenuItem>
-                    <Button variant='contained' sx={{ mx: 1 }}>
-                        <b>Get A Free Quote</b>
-                    </Button>
-                </MenuItem>
-            </Paper>
-        </Box>
-    </>
+                    </Paper>
+                )}
+            </Box>
+        </>
     );
 }
 
