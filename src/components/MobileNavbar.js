@@ -68,6 +68,14 @@ function MobileNavbar() {
         }
     }, [expanded]);
 
+    const getHoverStyles = (panel) => ({
+        '&:hover': {
+            backgroundColor: expanded !== panel ? 'primary.dark' : 'inherit',
+            color: expanded !== panel ? 'white' : 'inherit',
+            cursor: expanded !== panel ? 'pointer' : 'default',
+        },
+    });
+
     return (
         <>
             <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-start', p: 0, m: 0, width: '10%' }}>
@@ -129,11 +137,7 @@ function MobileNavbar() {
                                 m: 0,
                                 p: 0,
                                 color: 'primary.main',
-                                '&:hover': {
-                                    backgroundColor: 'primary.dark',
-                                    color: 'white',
-                                    cursor: 'pointer',
-                                },
+                                ...getHoverStyles('panel1'),
                             }}>
                             <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel1d-content" id="panel1d-header" sx={{ my: 0, py: 0 }}>
                                 <Typography textAlign="center">Services</Typography>
@@ -163,11 +167,7 @@ function MobileNavbar() {
                                 m: 0,
                                 p: 0,
                                 color: 'primary.main',
-                                '&:hover': {
-                                    backgroundColor: 'primary.dark',
-                                    color: 'white',
-                                    cursor: 'pointer',
-                                },
+                                ...getHoverStyles('panel2'),
                             }}>
                             <AccordionSummary expandIcon={<ExpandMore />} aria-controls="panel2d-content" id="panel2d-header" sx={{ my: 0, py: 0 }}>
                                 <Typography textAlign="center">Hire Now</Typography>
