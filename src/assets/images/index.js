@@ -16,6 +16,11 @@ import enterprises from './enterprises.png';
 import mediumnsmall from './mediumnsmall.png';
 import imageicon from './image-icons.png';
 import w from './w.png';
+import cw from './cw.png';
+import dm from './dm.png';
+import gd from './gd.png';
+import md from './md.png';
+import wd from './wd.png';
 
 export {
     footer,
@@ -36,4 +41,9 @@ export {
     mediumnsmall,
     imageicon,
     w,
+    cw,
+    dm,
+    gd,
+    md,
+    wd,
 };
