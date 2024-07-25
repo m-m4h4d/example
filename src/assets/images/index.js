@@ -21,6 +21,10 @@ import dm from './dm.png';
 import gd from './gd.png';
 import md from './md.png';
 import wd from './wd.png';
+import heronasa from './hero_nasa.png';
+import image from './image.png';
+import reach from './Reach.png';
+import plan from './Plan.png';
 
 export {
     footer,
@@ -46,4 +50,8 @@ export {
     gd,
     md,
     wd,
+    heronasa,
+    image,
+    reach,
+    plan,
 };
