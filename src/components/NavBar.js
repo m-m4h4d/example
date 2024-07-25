@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { ExpandLess, ExpandMore, EmojiObjectsOutlined, VerifiedOutlined, PhoneAndroidOutlined, Menu as MenuIcon, Close } from '@mui/icons-material';
 import { AppBar, Typography, Box, Button, Menu, MenuItem, Divider, Container, Toolbar, Grid, ListItemText, IconButton, Paper, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import {
@@ -23,7 +24,13 @@ import {
     ElearningContent
 } from '../assets/svg';
 
-const pages = ['About Us', 'Blogs', 'Career', 'Portfolio', 'Contact Us'];
+const pages = [
+    { label: 'About Us', link: '/about' },
+    { label: 'Blogs', link: '/blogs' },
+    { label: 'Career', link: '/career' },
+    { label: 'Portfolio', link: '/portfolio' },
+    { label: 'Contact Us', link: '/contact' }
+];
 const hireOptions = ['Digital Marketer', 'Graphic Designer', 'Web Developer', 'App Developer', 'Content Writer'];
 const services = ['Digital Marketing', 'Graphic Designing', 'Web Development', 'Mobile Development', 'SEO Content Writing'];
 
@@ -189,8 +196,8 @@ function NavBar() {
         <AppBar sx={{ background: 'white', color: 'black', justifyContent: 'center', alignItems: 'center', textAlign: 'center', position: '' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-start', p: 0, m: 0, width: '10%' }}>
-                        <Typography variant='h3' sx={{ flexGrow: 1, mx: 1 }}>LOGO</Typography>
+                    <Box component={Link} to="/" sx={{ display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-start', p: 0, m: 0, width: '10%', cursor: 'pointer', textDecoration: "none" }}>
+                        <Typography component={Link} to="/" variant='h3' sx={{ flexGrow: 1, mx: 1, color: 'black', textDecoration: 'none', cursor: 'pointer' }}>LOGO</Typography>
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'flex', md: 'flex', lg: 'none', xl: 'none' }, justifyContent: 'flex-end', width: '100%' }}>
                         <IconButton
@@ -225,21 +232,25 @@ function NavBar() {
                                     overflowY: 'auto'
                                 }}
                             >
-                                {pages.map((page) => (
-                                    <><MenuItem
-                                        key={page}
-                                        onClick={handleCloseNavMenu}
-                                        sx={{
-                                            color: 'primary.main',
-                                            '&:hover': {
-                                                backgroundColor: 'primary.dark',
-                                                color: 'white',
-                                                cursor: 'pointer',
-                                            },
-                                        }}>
-                                        <Typography textAlign="center">{page}</Typography>
-                                    </MenuItem>
-                                        <Divider /></>
+                                {pages.map((page, index) => (
+                                    <>
+                                        <MenuItem
+                                            key={index}
+                                            component={Link}
+                                            to={page.link}
+                                            onClick={handleCloseNavMenu}
+                                            sx={{
+                                                color: 'primary.main',
+                                                '&:hover': {
+                                                    backgroundColor: 'primary.dark',
+                                                    color: 'white',
+                                                    cursor: 'pointer',
+                                                },
+                                            }}>
+                                            <Typography textAlign="center">{page.label}</Typography>
+                                        </MenuItem>
+                                        <Divider />
+                                    </>
                                 ))}
                                 <Accordion
                                     expanded={expanded === 'panel1'}
@@ -302,7 +313,7 @@ function NavBar() {
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }, justifyContent: 'center', p: 0, m: 0, alignItems: 'center' }}>
                         <Box sx={{ justifyContent: 'center', alignItems: 'center', display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex', xl: 'flex' } }}>
-                            <Typography variant='h3' sx={{ flexGrow: 1, mx: 1 }}>LOGO</Typography>
+                            <Typography component={Link} to="/" variant='h3' sx={{ flexGrow: 1, mx: 1, textDecoration: "none", cursor: "pointer", color: "black" }}>LOGO</Typography>
                         </Box>
                         <Box
                             onMouseEnter={handleMouseEnterServices}
@@ -414,8 +425,8 @@ function NavBar() {
                             </Menu>
                         </Box>
                         {pages.map((page) => (
-                            <Button sx={{ color: 'black', mx: 1 }} key={page}>
-                                <b>{page}</b>
+                            <Button sx={{ color: 'black', mx: 1 }} key={page} component={Link} to={page.link}>
+                                <b>{page.label}</b>
                             </Button>
                         ))}
                         <Box

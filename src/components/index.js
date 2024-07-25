@@ -8,5 +8,6 @@ import Partners from './Partners';
 import DigiBusiness from './DigiBusiness';
 import BusinessPartner from './BusinessPartner';
 import Landing from './Landing';
+import Contact from './Contact';
 
-export { Hero, Strategy, Footer, Testimonials, NavBar, Industries, Partners, DigiBusiness, BusinessPartner, Landing };
+export { Hero, Strategy, Footer, Testimonials, NavBar, Industries, Partners, DigiBusiness, BusinessPartner, Landing, Contact };
