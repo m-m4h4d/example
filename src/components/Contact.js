@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Box, TextField, Button, Grid } from '@mui/material';
+import { Typography, Box, TextField, Button, Grid, Paper } from '@mui/material';
 
 const Contact = () => {
     return (
@@ -20,23 +20,11 @@ const Contact = () => {
                     />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <Typography variant="h4" gutterBottom><b>Get In Touch.</b></Typography>
+                    <Typography variant="h4" gutterBottom sx={{ mt: 2 }}><b>Get In Touch.</b></Typography>
                     <Typography gutterBottom>
                         We would be happy to answer your questions, fill out the form and we shall respond promptly.
                     </Typography>
-                    <Typography variant="h6" sx={{ mt: 2 }}><b>ADDRESS</b></Typography>
-                    <Typography gutterBottom>
-                        HCI Expert PVT LTD, Shakeel Arcade Office#8, 85 Street 85, G-13/1 G 13/1 G-13, Islamabad, Islamabad Capital Territory, Pakistan
-                    </Typography>
-                    <Typography variant="h6" sx={{ mt: 2 }}><b>EMAIL</b></Typography>
-                    <Typography gutterBottom>
-                        fakhar@hciexpert.com
-                    </Typography>
-                    <Typography variant="h6" sx={{ mt: 2 }}><b>PHONE</b></Typography>
-                    <Typography gutterBottom>
-                        +92 300 5674006
-                    </Typography>
-                    <Box component="form" noValidate autoComplete="off" sx={{ mt: 2 }}>
+                    <Box component="form" noValidate autoComplete="off" sx={{ my: 2 }}>
                         <TextField fullWidth label="Your Name" margin="normal" />
                         <TextField fullWidth label="Your Email" margin="normal" />
                         <TextField fullWidth label="Your Subject" margin="normal" />
@@ -47,10 +35,30 @@ const Contact = () => {
                             rows={4}
                             margin="normal"
                         />
-                        <Button variant="contained" color="primary" sx={{ mt: 2 }}>
+                        <Button variant="contained" sx={{ mt: 2, width: "100%" }}>
                             Send
                         </Button>
                     </Box>
+                    <Paper elevation={4} sx={{ py: 4, my: 4 }}>
+                        <Grid container spacing={4} sx={{ display: "flex", justifyContent: "space-evenly" }}>
+                            <Grid item md={6}>
+                                <Typography ><b>ADDRESS</b></Typography>
+                                <Typography variant='body2' gutterBottom>
+                                    HCI Expert PVT LTD, Office # 8, Shakeel Arcade, Street # 85, Sector G-13/1, Islamabad, Capital Territory, Pakistan
+                                </Typography>
+                            </Grid>
+                            <Grid item md={5}>
+                                <Typography ><b>EMAIL</b></Typography>
+                                <Typography variant='body2' gutterBottom>
+                                    fakhar@hciexpert.com
+                                </Typography>
+                                <Typography ><b>PHONE</b></Typography>
+                                <Typography variant='body2' gutterBottom>
+                                    +92 300 5674006
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                    </Paper>
                 </Grid>
             </Grid>
         </Box>
