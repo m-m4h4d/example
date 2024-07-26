@@ -23,6 +23,7 @@ const items = [
 
 const About = () => {
     const [index, setIndex] = React.useState(0);
+
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', my: 0, py: 0 }}>
             <Grid container spacing={0} sx={{ width: '100%', alignItems: "center", my: 0, py: 0 }}>
@@ -40,8 +41,19 @@ const About = () => {
             </Grid>
             <Box sx={{ width: "100%", my: 0, py: 0 }}>
                 <Box sx={{ height: "auto", bgcolor: "primary.main", width: "100%", display: "flex", justifyContent: "space-evenly", my: 0, py: 0 }}>
-                    {items.map((item, index) => (
-                        <Typography variant="h5" key={index} onClick={() => setIndex(index)} sx={{ color: "white", cursor: "pointer", '&:hover': { textDecoration: "underline" }, my: 0, py: 0 }}>
+                    {items.map((item, i) => (
+                        <Typography
+                            variant="h5"
+                            key={i}
+                            onClick={() => setIndex(i)}
+                            sx={{
+                                color: "white",
+                                cursor: "pointer",
+                                textDecoration: i === index ? "underline" : "none",
+                                '&:hover': { textDecoration: "underline" },
+                                my: 0,
+                                py: 0
+                            }}>
                             <b>{item.title}</b>
                         </Typography>
                     ))}
