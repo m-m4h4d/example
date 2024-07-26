@@ -10,5 +10,24 @@ import BusinessPartner from './BusinessPartner';
 import Landing from './Landing';
 import Contact from './Contact';
 import About from './About';
+import MobileView from './MobileView';
+import DesktopView from './DesktopView';
+import RequestQuote from './RequestQuote';
 
-export { Hero, Strategy, Footer, Testimonials, NavBar, Industries, Partners, DigiBusiness, BusinessPartner, Landing, Contact, About };
+export {
+    Hero,
+    Strategy,
+    Footer,
+    Testimonials,
+    NavBar,
+    Industries,
+    Partners,
+    DigiBusiness,
+    BusinessPartner,
+    Landing,
+    Contact,
+    About,
+    MobileView,
+    DesktopView,
+    RequestQuote
+};
