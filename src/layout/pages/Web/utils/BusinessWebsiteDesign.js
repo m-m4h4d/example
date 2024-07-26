@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
-import { Testimonials, Industries, BusinessPartner, FAQ } from '../../../';
+import { Testimonials, Industries, BusinessPartner, FAQ, Workflow } from '../../..';
 import { react } from '../../../../assets';
 
 const BusinessWebsiteDesign = () => {
@@ -38,6 +38,7 @@ const BusinessWebsiteDesign = () => {
             </Box>
             <BusinessPartner />
             <Testimonials />
+            <Workflow />
             <Industries />
             <FAQ />
         </Box>

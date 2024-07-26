@@ -24,6 +24,15 @@ import { ReactComponent as Startups } from './svg/Startups.svg';
 import { ReactComponent as WebDesignServices } from './svg/WebDesignServices.svg';
 import { ReactComponent as GraphicDesignServices } from './svg/GraphicDesignServices.svg';
 import { ReactComponent as MarketingServices } from './svg/MarketingServices.svg';
+import { ReactComponent as Tri } from './svg/Tri.svg';
+import { ReactComponent as BudgetPlanning } from './svg/Budget Planning.svg';
+import { ReactComponent as DebuggingAndFeedbackMonitoring } from './svg/Debugging & Feedback Monitoring.svg';
+import { ReactComponent as DiscussingWebDesignStrategy } from './svg/Discussing Web Design Strategy.svg';
+import { ReactComponent as Prototype } from './svg/Prototype.svg';
+import { ReactComponent as RequirementsCollection } from './svg/Requirements Collection.svg';
+import { ReactComponent as TestingStage } from './svg/Testing Stage.svg';
+import { ReactComponent as DeploymentAndLaunch } from './svg/Deployment And Launch.svg';
+import { ReactComponent as IdentifyingTargetAudience } from './svg/Identifying Target Audience.svg';
 
 import footer from './images/footer.png';
 import agile from './images/agile.png';
@@ -77,10 +86,19 @@ export {
     Enterprise,
     Agencies,
     SME,
+    Tri,
     Startups,
     WebDesignServices,
     GraphicDesignServices,
     MarketingServices,
+    BudgetPlanning,
+    DebuggingAndFeedbackMonitoring,
+    DiscussingWebDesignStrategy,
+    Prototype,
+    RequirementsCollection,
+    TestingStage,
+    DeploymentAndLaunch,
+    IdentifyingTargetAudience,
 }
 
 export {
