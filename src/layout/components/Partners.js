@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
-import { SME, Agencies, Startups, Enterprise } from '../../assets/svg';
-import { agencies, enterprises, startup, mediumnsmall } from '../../assets/images';
+import { agencies, enterprises, startup, mediumnsmall, SME, Agencies, Startups, Enterprise } from '../../assets';
 
 const partners = [
     {

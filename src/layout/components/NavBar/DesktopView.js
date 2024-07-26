@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RequestQuote } from '../';
+import { RequestQuote } from '../../';
 import { ExpandLess, ExpandMore, EmojiObjectsOutlined, VerifiedOutlined, PhoneAndroidOutlined } from '@mui/icons-material';
 import { Typography, Box, Button, Menu, MenuItem, Divider, Grid, ListItemText } from '@mui/material';
 import {
@@ -23,7 +23,7 @@ import {
     TechnicalWritingServices,
     ResearchAndAnalysis,
     ElearningContent
-} from '../../assets/svg';
+} from '../../../assets';
 
 const hireOptions = ['Digital Marketer', 'Graphic Designer', 'Web Developer', 'App Developer', 'Content Writer'];
 const services = ['Digital Marketing', 'Graphic Designing', 'Web Development', 'Mobile Development', 'SEO Content Writing'];

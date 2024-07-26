@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RequestQuote } from '..';
+import { RequestQuote } from '../../';
 import { ExpandMore, Menu as MenuIcon, Close } from '@mui/icons-material';
 import { Typography, Box, Button, MenuItem, Divider, IconButton, Paper, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 

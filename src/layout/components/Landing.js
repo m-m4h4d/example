@@ -1,7 +1,7 @@
 import React from 'react';
 import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.cjs.css';
-import { cw, wd, dm, gd, md } from '../../assets/images';
+import { cw, wd, dm, gd, md } from '../../assets';
 import { Box, Typography, Button } from '@mui/material';
 
 const Banners = [
