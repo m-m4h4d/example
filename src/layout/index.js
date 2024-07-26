@@ -14,6 +14,7 @@ import MobileView from './components/NavBar/MobileView';
 import DesktopView from './components/NavBar/DesktopView';
 import RequestQuote from './components/RequestQuote';
 import BusinessWebsiteDesign from './pages/Web/pages/BusinessWebsiteDesign';
+import FAQ from './components/FAQ';
 
 export {
     Hero,
@@ -32,4 +33,5 @@ export {
     DesktopView,
     RequestQuote,
     BusinessWebsiteDesign,
+    FAQ,
 };

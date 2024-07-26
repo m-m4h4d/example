@@ -52,6 +52,7 @@ import heronasa from './images/hero_nasa.png';
 import image from './images/image.png';
 import reach from './images/Reach.png';
 import plan from './images/Plan.png';
+import react from './images/react.png';
 
 export {
     SocialMediaMarketing,
@@ -110,4 +111,5 @@ export {
     image,
     reach,
     plan,
+    react,
 };
