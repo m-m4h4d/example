@@ -14,11 +14,11 @@ const modalStyle = {
     boxShadow: 24,
     p: 4,
     overflowY: 'auto',
-    borderRadius: 4
+    borderRadius: 4,
+    height: 'auto',
 };
 
-const RequestQuote = (open, onClose) => {
-    console.log(open, onClose);
+const RequestQuote = ({ open, onClose }) => {
     return (
         <Modal open={open} onClose={onClose}>
             <Box sx={modalStyle}>
