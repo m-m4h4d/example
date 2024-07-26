@@ -62,7 +62,11 @@ const Workflow = () => {
                                 mt: 0,
                                 p: 2,
                                 textAlign: 'center',
-                                height: "100%"
+                                height: "100%",
+                                flex: 1,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
                             }}
                         >
                             {step.icon}
