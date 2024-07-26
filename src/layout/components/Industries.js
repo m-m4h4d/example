@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Box, Grid, Card } from '@mui/material';
-import { ecommerce, education, food, gaming, health, logistics, realestate, social, solutions, travel } from '../assets/images';
+import { ecommerce, education, food, gaming, health, logistics, realestate, social, solutions, travel } from '../../assets/images';
 
 const industries = [
     {

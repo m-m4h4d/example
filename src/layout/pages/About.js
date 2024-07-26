@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
-import { BusinessPartner } from './';
-import { heronasa, image, plan, reach } from '../assets/images';
+import { BusinessPartner } from '..';
+import { heronasa, image, plan, reach } from '../../assets/images';
 
 const items = [
     {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MobileView, DesktopView  } from './';
+import { MobileView, DesktopView  } from '..';
 import { AppBar, Container, Toolbar } from '@mui/material';
 
 function NavBar() {

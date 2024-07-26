@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, Button, Grid } from '@mui/material';
-import { WebDesignServices, GraphicDesignServices, MarketingServices } from '../assets/svg';
-import { w, imageicon } from '../assets/images';
+import { WebDesignServices, GraphicDesignServices, MarketingServices } from '../../assets/svg';
+import { w, imageicon } from '../../assets/images';
 
 const DigiBusiness = () => {
     return (

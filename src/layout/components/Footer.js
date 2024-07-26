@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Container, Grid, Typography, Link, Divider, Button } from '@mui/material';
 import { Facebook, Instagram, LinkedIn, X } from '@mui/icons-material';
-import { footer } from '../assets/images';
+import { footer } from '../../assets/images';
 
 const Buttons = {
     'Services': ['Digital Marketing', 'Graphic Designing', 'Web Development', 'Mobile Development', 'SEO Content Writing'],

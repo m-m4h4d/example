@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RequestQuote } from './';
+import { RequestQuote } from '../';
 import { ExpandLess, ExpandMore, EmojiObjectsOutlined, VerifiedOutlined, PhoneAndroidOutlined } from '@mui/icons-material';
 import { Typography, Box, Button, Menu, MenuItem, Divider, Grid, ListItemText } from '@mui/material';
 import {
@@ -23,7 +23,10 @@ import {
     TechnicalWritingServices,
     ResearchAndAnalysis,
     ElearningContent
-} from '../assets/svg';
+} from '../../assets/svg';
+
+const hireOptions = ['Digital Marketer', 'Graphic Designer', 'Web Developer', 'App Developer', 'Content Writer'];
+const services = ['Digital Marketing', 'Graphic Designing', 'Web Development', 'Mobile Development', 'SEO Content Writing'];
 
 const pages = [
     { label: 'About Us', link: '/about' },
@@ -32,8 +35,6 @@ const pages = [
     { label: 'Portfolio', link: '/portfolio' },
     { label: 'Contact Us', link: '/contact' }
 ];
-const hireOptions = ['Digital Marketer', 'Graphic Designer', 'Web Developer', 'App Developer', 'Content Writer'];
-const services = ['Digital Marketing', 'Graphic Designing', 'Web Development', 'Mobile Development', 'SEO Content Writing'];
 
 const DigitalMarketingOptions = [
     { label: 'Social Media Marketing', icon: <SocialMediaMarketing style={{ height: '20%' }} /> },
@@ -50,7 +51,7 @@ const GraphicDesigningOptions = [
 ];
 
 const WebDevelopmentOptions = [
-    { label: 'Business Website Design', icon: <BusinessWebsiteDesign style={{ height: '20%' }} /> },
+    { label: 'Business Website Design', icon: <BusinessWebsiteDesign style={{ height: '20%' }} />, link: '/web-development/business-website' },
     { label: 'ECommerce Web Design', icon: <ECommerceWebDesignAndDevelopment style={{ height: '20%' }} /> },
     { label: 'Landing Page Design', icon: <LandingPageDesign style={{ height: '20%' }} /> },
     { label: 'Dropshipping Website', icon: <DropshippingWebsite style={{ height: '20%' }} /> },
@@ -211,8 +212,8 @@ function DesktopView() {
                                         <Grid md={6} key={index} sx={{ display: 'flex', justifyContent: 'flex-start' }}>
                                             <Box sx={{ display: 'flex' }}>
                                                 {option.icon}
-                                                <Typography variant='body2' sx={{ cursor: 'pointer', ml: 1 }}>
-                                                    {option.label}
+                                                <Typography variant='body2' component={Link} to={option.link} onClick={handleMouseLeaveServices} sx={{ color: 'black', textDecoration: 'none', cursor: 'pointer', ml: 1, '&:hover': { color: 'primary.main', textDecoration: 'underline' } }}>
+                                                    <b>{option.label}</b>
                                                 </Typography>
                                             </Box>
                                         </Grid>

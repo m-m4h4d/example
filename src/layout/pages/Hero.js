@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import { Industries, Partners, Strategy, Testimonials, DigiBusiness, BusinessPartner, Landing } from './';
+import { Industries, Partners, Strategy, Testimonials, DigiBusiness, BusinessPartner, Landing } from '..';
 
 const Hero = () => {
     return (
