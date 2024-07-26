@@ -83,7 +83,15 @@ function DesktopView() {
     const openServices = Boolean(anchorElServices);
     const [currentService, setCurrentService] = React.useState(null);
 
-    const onClose = () => { console.log("onclose clicked") }
+    const handleOpen = () => {
+        setOpen(true);
+        console.log(open);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+        console.log(open);
+    };
 
     const handleMouseEnterServices = (event) => {
         setAnchorElServices(event.currentTarget);
@@ -129,7 +137,7 @@ function DesktopView() {
 
     return (
         <>
-            <RequestQuote open={open} onClose={onClose()} />
+            <RequestQuote open={open} onClose={handleClose} />
 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex', xl: 'flex' }, justifyContent: 'center', p: 0, m: 0, alignItems: 'center' }}>
                 <Box sx={{ justifyContent: 'center', alignItems: 'center', display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex', xl: 'flex' } }}>
@@ -317,7 +325,7 @@ function DesktopView() {
                         ))}
                     </Menu>
                 </Box>
-                <Button variant='contained' sx={{ mx: 1 }} onClick={() => setOpen(true)}>
+                <Button variant='contained' sx={{ mx: 1 }} onClick={handleOpen}>
                     <b>Get A Free Quote</b>
                 </Button>
                 {/* <RequestQuote open={open} onClose={() => setOpen(false)} /> */}

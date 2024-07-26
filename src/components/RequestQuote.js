@@ -18,6 +18,7 @@ const modalStyle = {
 };
 
 const RequestQuote = (open, onClose) => {
+    console.log(open, onClose);
     return (
         <Modal open={open} onClose={onClose}>
             <Box sx={modalStyle}>
