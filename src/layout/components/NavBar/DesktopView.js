@@ -82,9 +82,9 @@ function DesktopView() {
     const handleClose = () => setOpen(false);
     const [anchorElHire, setAnchorElHire] = React.useState(null);
     const openHire = Boolean(anchorElHire);
-    const [anchorElServices, setAnchorElServices] = React.useState(null);
+    const [anchorElServices, setAnchorElServices] = React.useState('Digital Marketing');
     const openServices = Boolean(anchorElServices);
-    const [currentService, setCurrentService] = React.useState(null);
+    const [currentService, setCurrentService] = React.useState('Digital Marketing');
 
     const handleMouseEnterServices = (event) => {
         setAnchorElServices(event.currentTarget);
@@ -92,7 +92,7 @@ function DesktopView() {
 
     const handleMouseLeaveServices = () => {
         setAnchorElServices(null);
-        setCurrentService('Digital Marketing');
+        setCurrentService(currentService);
     };
 
     const handleMouseEnterService = (service) => {
@@ -161,7 +161,6 @@ function DesktopView() {
                                 backgroundColor: 'primary.main',
                                 transition: 'all 0.2s ease-in-out',
                                 textAlign: 'left',
-                                p: 2,
                                 '&:hover': {
                                     backgroundColor: 'white',
                                     color: 'black'
@@ -186,41 +185,42 @@ function DesktopView() {
                             mt: 1.3,
                             ml: 35,
                             width: '70%',
-                            p: 0
+                            p: 0,
+                            height: '40%',
                         }
                     }}
                     transformOrigin={{ horizontal: 'center', vertical: 'top' }}
                     anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
                 >
-                    <Box sx={{ display: 'flex', flexDirection: 'column', height: 368, p: 0 }}>
-                        <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 0 }}>
-                            <Box id='services' textAlign='left' sx={{ flex: 2, ml: 3, justifyContent: 'space-evenly', height: '100%', color: 'white', pt: 3, alignItems: 'left' }}>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', height: 364, p: 0 }}>
+                        <Grid container spacing={0} sx={{ height: '100%', py: 0 }}>
+                            <Grid item lg={3} id='services' textAlign='left' sx={{ justifyContent: 'space-around', height: '100%', color: 'white', alignItems: 'left', display: "flex", flexDirection: "column", py: 0, my: 0 }}>
                                 {services.map((service) => (
                                     <MenuItem
                                         onMouseEnter={() => handleMouseEnterService(service)}
                                         onMouseLeave={handleMouseLeaveService}
                                         key={service}
-                                        sx={{ textAlign: 'left', justifyContent: 'flex-start' }}
+                                        sx={{ textAlign: 'left', justifyContent: 'flex-start', py: 2 }}
                                     >
                                         <ListItemText textAlign={'left'} style={{ textAlign: "left" }}><b>{service}</b></ListItemText>
                                     </MenuItem>
                                 ))}
-                            </Box>
-                            <Box sx={{ flex: 3, background: 'white', height: '100%', pt: 6, pb: 2, pl: 3 }}>
-                                <Grid container id='options' sx={{ height: '100%' }}>
+                            </Grid>
+                            <Grid item lg={6} sx={{ flex: 3, background: 'white', height: '100%', pl: 3, pt: 6 }}>
+                                <Grid container id='options' sx={{ height: '100%', display: "flex" }}>
                                     {currentService && getOptions(currentService).map((option, index) => (
-                                        <Grid md={6} key={index} sx={{ display: 'flex', justifyContent: 'flex-start' }}>
+                                        <Grid item md={6} key={index} sx={{ display: 'flex', justifyContent: 'flex-start' }}>
                                             <Box sx={{ display: 'flex' }}>
                                                 {option.icon}
-                                                <Typography variant='body2' component={Link} to={option.link} onClick={handleMouseLeaveServices} sx={{ color: 'black', textDecoration: 'none', cursor: 'pointer', ml: 1, '&:hover': { color: 'primary.main', textDecoration: 'underline' } }}>
+                                                <Typography variant='body2' component={Link} to={option.link} onClick={handleMouseLeaveServices} sx={{ color: 'black', textDecoration: 'none', cursor: 'pointer', '&:hover': { color: 'primary.main', textDecoration: 'underline' } }}>
                                                     <b>{option.label}</b>
                                                 </Typography>
                                             </Box>
                                         </Grid>
                                     ))}
                                 </Grid>
-                            </Box>
-                            <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, backgroundColor: '#F0F9FF', px: 7, py: 4, justifyContent: 'space-evenly', height: '100%', alignItems: 'center' }}>
+                            </Grid>
+                            <Grid item lg={3} sx={{ display: 'flex', flexDirection: 'column', backgroundColor: '#F0F9FF', justifyContent: 'space-evenly', height: '100%', alignItems: 'center', my: 0, py: 0 }}>
                                 {highlights.map(({ title, icon }) => (
                                     <Box
                                         key={title}
@@ -228,17 +228,15 @@ function DesktopView() {
                                             display: 'flex',
                                             flexDirection: 'row',
                                             justifyContent: 'space-evenly',
-                                            p: 0,
-                                            m: 0,
-                                            width: '100%',
+                                            width: '75%',
                                             color: 'primary.main',
                                             alignItems: 'center',
                                         }}>
                                         {icon}<Typography variant='h6' color={'black'} sx={{ ml: 1 }}>{title}</Typography>
                                     </Box>
                                 ))}
-                            </Box>
-                        </Box>
+                            </Grid>
+                        </Grid>
                     </Box>
                 </Menu>
             </Box>
